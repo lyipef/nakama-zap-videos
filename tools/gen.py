@@ -1,7 +1,12 @@
 import math, subprocess, functools, sys, json
-from PIL import Image, ImageDraw, ImageFont
+import os, random
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import fx
+from PIL import Image, ImageDraw, ImageFont, ImageChops, ImageFilter
 
 CFG = json.load(open(sys.argv[1]))
+STYLE = CFG.get("style", "classic")  # classic | hud | forja
+CUR = {"idx": 0}
 W, H, FPS = 1080, 1920, 30
 F = "/home/claude/reel/fonts/"
 DEJA = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
@@ -98,11 +103,33 @@ else:  # grid
     for k in range(0, W + 160, 80): _bd.line((k, 0, k, H + 160), fill=PAT, width=3)
     for k in range(0, H + 160, 80): _bd.line((0, k, W + 160, k), fill=PAT, width=3)
 
+HUD_BG = (12, 12, 34); FORJA_BG = (26, 14, 40)
+if STYLE == "hud":
+    bgimg = Image.new("RGB", (W + 160, H + 160), HUD_BG); _bd = ImageDraw.Draw(bgimg)
+    for k in range(0, H + 160, 6): _bd.line((0, k, W + 160, k), fill=(17, 17, 44))
+    for k in range(0, W + 160, 120): _bd.line((k, 0, k, H + 160), fill=(20, 22, 54), width=2)
+elif STYLE == "forja":
+    bgimg = Image.new("RGB", (W + 160, H + 160), FORJA_BG)
+_EMB = [(random.Random(i).uniform(0, W), random.Random(i + 99).uniform(0, H), random.Random(i + 7).uniform(40, 120), random.Random(i + 3).uniform(3, 8)) for i in range(40)]
+
 def make_bg(T, col):
     o = int(T * 14) % 80
     im = bgimg.crop((o, o, o + W, o + H))
     d = ImageDraw.Draw(im)
-    d.polygon([(0, 1500), (W, 1250), (W, 1430), (0, 1710)], fill=lerp(BASE, col, 0.25))
+    if STYLE == "hud":
+        sy = int((T * 380) % H); d.rectangle((0, sy, W, sy + 5), fill=(30, 40, 84))
+        d.polygon([(0, 1500), (W, 1250), (W, 1430), (0, 1710)], fill=lerp(HUD_BG, col, 0.18))
+    elif STYLE == "forja":
+        heat = 0.35 + 0.12 * math.sin(T * 3)
+        g = Image.new("RGB", (W // 4, H // 4), (0, 0, 0)); gd = ImageDraw.Draw(g)
+        gd.ellipse((-60, 330, W // 4 + 60, H // 4 + 120), fill=lerp((0, 0, 0), (190, 70, 10), heat))
+        g = g.filter(ImageFilter.GaussianBlur(40)).resize((W, H))
+        im = ImageChops.add(im, g); d = ImageDraw.Draw(im)
+        for x, y, v, r in _EMB:
+            yy = (y - T * v) % H; xx = x + math.sin(T * 1.5 + y) * 20
+            d.ellipse((xx - r, yy - r, xx + r, yy + r), fill=(255, 150 + int(r * 10), 60))
+    else:
+        d.polygon([(0, 1500), (W, 1250), (W, 1430), (0, 1710)], fill=lerp(BASE, col, 0.25))
     return im, d
 
 ITEMS = CFG["items"]
@@ -146,11 +173,32 @@ def header(d, t, T, idx, col):
     d.text((920 - deja(34).getlength(tag), 240), tag, font=deja(34), fill=CREAM)
     return pulse
 
+STRIKE = 0.45  # momento do golpe da marreta (forja)
 def card(d, t, col):
-    ox = int((1 - ease(t / 0.45)) * W)
+    if STYLE == "hud":
+        ox = int(random.Random(int(t * 30)).uniform(-45, 45)) if t < 0.3 else 0
+        a = ease(t / 0.2)
+        if a < 0.5 and int(t * 30) % 2: return W * 3
+        d.rectangle((x0 + 14 + ox, y0 - 70 + 14, x0 + cw + 14 + ox, y0 + ch + 14), fill=col)
+        d.rectangle((x0 + ox, y0 - 70, x0 + cw + ox, y0 + ch), fill=CREAM, outline=INK, width=8)
+        d.rectangle((x0 + ox, y0 - 70, x0 + cw + ox, y0 - 4), fill=col, outline=INK, width=8)
+        d.text((x0 + 26 + ox, y0 - 62), f"[ITEM {CUR['idx']}/{NI}]", font=bang(52), fill=INK)
+        for q in range(3): d.rectangle((x0 + cw - 150 + q * 40 + ox, y0 - 48, x0 + cw - 124 + q * 40 + ox, y0 - 22), fill=INK)
+        return ox
+    if STYLE == "forja" and t < STRIKE:
+        return W * 3
+    ox = 0 if STYLE == "forja" else int((1 - ease(t / 0.45)) * W)
     d.rounded_rectangle((x0 + 16 + ox, y0 + 16, x0 + cw + 16 + ox, y0 + ch + 16), 38, fill=col)
     d.rounded_rectangle((x0 + ox, y0, x0 + cw + ox, y0 + ch), 38, fill=CREAM, outline=INK, width=8)
     return ox
+
+def forja_hammer(d, t):
+    if t >= 0.85: return
+    base = math.radians(60); hit = math.radians(-5)
+    if t < STRIKE: ang = base + (hit - base) * (t / STRIKE) ** 3
+    else: ang = hit + (base - hit) * ease((t - STRIKE) / 0.4)
+    alpha_out = t > 0.7
+    if not alpha_out: fx.hammer(d, x0 + cw + 300, y0 - 40, ang, 1.0)
 
 def reveal_block(d, t, ox, label, lcol, text, bottom=True):
     """pill + texto que aparece em 1.3s, ancorado na base do card"""
@@ -265,7 +313,31 @@ for _, dur, _c in SCENES: starts.append(acc); acc += dur
 TOTAL = acc; N = int(round(TOTAL * FPS))
 print("duração:", round(TOTAL, 2), "s frames:", N)
 
+# ---------- efeitos por estilo ----------
+HITS = []; BURSTS = []; EVENTS = []
+item_starts = [starts[k] for k in range(len(SCENES)) if SCENES[k][0] == "item"]
+cta_start = starts[-1]
+if STYLE == "hud":
+    EVENTS += [(0.05, fx.impact(0.5)), (cta_start, fx.chime(990, 0.3)), (cta_start, fx.whoosh(0.5))]
+    for k, st in enumerate(item_starts):
+        HITS.append(st)
+        EVENTS += [(st, fx.blip(1200, 0.07, 0.2)), (st + 0.1, fx.blip(1600, 0.07, 0.2)), (st + 1.3, fx.chime(880 if k < NI - 1 else 660, 0.18))]
+        BURSTS.append(fx.Burst(st + 1.3, x0 + 160, y0 + ch - 140, 26, [YEL, CREAM, BLUE], 700, 0.7, 600, 8, k))
+    EVENTS.append((item_starts[-1], fx.chime(1320, 0.25)))
+elif STYLE == "forja":
+    EVENTS += [(0.05, fx.impact(0.6)), (cta_start, fx.impact(0.7)), (cta_start, fx.chime(990, 0.3))]
+    HITS.append(cta_start)
+    for k, st in enumerate(item_starts):
+        h = st + STRIKE; HITS.append(h)
+        EVENTS += [(st + 0.1, fx.whoosh(0.35, 0.25)), (h, fx.clang(0.4)), (h, fx.impact(0.45)), (st + 1.3, fx.chime(880, 0.12))]
+        BURSTS.append(fx.Burst(h, x0 + cw - 30, y0 + 10, 55, [YEL, ORA, (255, 240, 180)], 1200, 0.8, 1500, 10, 50 + k, up=True))
+    BURSTS.append(fx.Burst(cta_start, CX, 1240, 70, [YEL, ORA, CREAM], 1200, 1.1, 900, 12, 99))
+
 OUT = CFG["out"]
+if STYLE != "classic":
+    _mixed = OUT.replace(".mp4", "_mix.wav")
+    fx.mix_sfx(CFG["wav"], _mixed, EVENTS)
+    CFG["wav"] = _mixed
 cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
        "-i", CFG["wav"], "-af", f"volume=0.9,afade=t=in:st=0:d=0.4,afade=t=out:st={TOTAL-1.8:.2f}:d=1.8",
        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "veryfast", "-crf", "20",
@@ -278,8 +350,16 @@ for fi in range(N):
     kind, dur, col = SCENES[si]; t = T - starts[si]
     im, d = make_bg(T, col)
     if kind == "hook": draw_hook(d, t, T)
-    elif kind == "item": DRAW(d, t, T, si, ITEMS[si - 1])
+    elif kind == "item":
+        CUR["idx"] = si; DRAW(d, t, T, si, ITEMS[si - 1])
+        if STYLE == "forja": forja_hammer(d, t)
     else: draw_cta(d, t, T)
+    for b in BURSTS: b.draw(d, T)
+    if STYLE != "classic":
+        dx, dy = fx.shake_xy(T, HITS, 24 if STYLE == "forja" else 12)
+        if dx or dy: im = ImageChops.offset(im, dx, dy); d = ImageDraw.Draw(im)
+        fa = fx.flash_amt(T, HITS, 0.18 if STYLE == "forja" else 0.1)
+        if fa > 0: im = Image.blend(im, Image.new("RGB", (W, H), (255, 250, 235)), (0.5 if STYLE == "forja" else 0.3) * fa); d = ImageDraw.Draw(im)
     d.rectangle((0, 0, W, 14), fill=(30, 18, 70))
     d.rectangle((0, 0, int(W * T / TOTAL), 14), fill=YEL)
     for k, pt in enumerate(prev_T):
