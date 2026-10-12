@@ -169,7 +169,7 @@ def header(d, t, T, idx, col):
     cs = int(130 * (1 + 0.05 * pulse) * (0.6 + 0.4 * back(t / 0.35)))
     d.text((86, 200), f"{idx}/{NI}", font=dela(cs), fill=INK)
     d.text((80, 194), f"{idx}/{NI}", font=dela(cs), fill=col)
-    tag = "@nakama.zap"
+    tag = "@zaptaku"
     d.text((920 - deja(34).getlength(tag), 240), tag, font=deja(34), fill=CREAM)
     return pulse
 
@@ -301,7 +301,7 @@ def draw_cta(d, t, T):
     e = ease((t - 2.0) / 0.4)
     if e > 0:
         logo(d, CX, 1240, 0.8 * e + 0.01)
-        ctext(d, 1345, "@nakama.zap", dela(58), CREAM, INK, off=6)
+        ctext(d, 1345, "@zaptaku", dela(58), CREAM, INK, off=6)
         ctext(d, 1425, CFG["cta_note"], fit(CFG["cta_note"], deja, 28, 860), (205, 195, 235))
 
 SCENES = [("hook", BAR, YEL)]

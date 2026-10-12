@@ -278,7 +278,7 @@ def scene_A():
                 ctext(d, y + 22, "7 MOTIVOS PRA ASSISTIR", fit("7 MOTIVOS PRA ASSISTIR", bang, 70, 760), INK, None)
                 ctext(d, y + 92, "SEGUE PRA VER", bang(50), CREAM, INK, 3)
         for b in bursts: b.draw(d, T)
-        ctext(d, 1460, "@nakama.zap", dela(48), CREAM)
+        ctext(d, 1460, "@zaptaku", dela(48), CREAM)
         return im, hits
     return frame
 
@@ -346,7 +346,7 @@ def scene_B():
         elif T >= 6.3:
             pop(d, 1460, "E COMEÇOU A FORJAR LENDAS", bang, 70, CREAM, T, 6.3, 900)
         for b in bursts: b.draw(d, T)
-        if T < 7.6 or T > 8.0: d.text((60, 1760), "@nakama.zap", font=dela(40), fill=CREAM)
+        if T < 7.6 or T > 8.0: d.text((60, 1760), "@zaptaku", font=dela(40), fill=CREAM)
         return im, hits
     return frame
 
@@ -433,7 +433,7 @@ def scene_C():
         if T >= 8.2:
             ctext(d, 1620, "OVERGEARED • NOVO NA CRUNCHYROLL", fit("OVERGEARED • NOVO NA CRUNCHYROLL", bang, 52, 900), BLUE)
         for b in bursts: b.draw(d, T)
-        d.text((60, 1760), "@nakama.zap", font=dela(40), fill=CREAM)
+        d.text((60, 1760), "@zaptaku", font=dela(40), fill=CREAM)
         return im, hits
     return frame
 

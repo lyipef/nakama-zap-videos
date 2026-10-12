@@ -1,4 +1,4 @@
-"""Templates de fundo do @nakama.zap (1080x1920).
+"""Templates de fundo do @zaptaku (1080x1920).
 Gera, para cada estilo (hud, forja):
   template_<estilo>_fundo.png    fundo completo (janela do clipe escura)
   template_<estilo>_moldura.png  camada transparente: vai POR CIMA do clipe (janela vazada)
@@ -109,16 +109,16 @@ def frame_layer(style):
         d.text((80, y0 - 66), lab, font=f, fill=INK + (255,))
         for q in range(3): d.rectangle((W - 230 + q * 44, y0 - 56, W - 202 + q * 44, y0 - 28), fill=acc + (255,), outline=INK + (255,), width=3)
     else:
-        lab = "FORJADO NA NAKAMA"; f = bang(44)
+        lab = "FORJADO NO ZAPTAKU"; f = bang(44)
         w = f.getlength(lab) + 52
         d.rounded_rectangle((60, y0 - 74, 60 + w, y0 - 16), 29, fill=ORA + (255,), outline=INK + (255,), width=5)
         d.text((86, y0 - 70), lab, font=f, fill=INK + (255,))
     # topo: logo + @
     logo(d, 132, 92, 0.42)
-    pill(d, 230, 60, "@nakama.zap", dela(40), CREAM)
+    pill(d, 230, 60, "@zaptaku", dela(40), CREAM)
     # rodapé: espaço de créditos + @
     d.line((60, FOOT_Y - 14, SAFE_R - 60, FOOT_Y - 14), fill=(255, 255, 255, 60), width=2)
-    d.text((60, FOOT_Y + 64), "@nakama.zap", font=dela(44), fill=CREAM + (255,))
+    d.text((60, FOOT_Y + 64), "@zaptaku", font=dela(44), fill=CREAM + (255,))
     return lay
 
 def window_mask():
