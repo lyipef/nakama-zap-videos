@@ -82,19 +82,36 @@ func pickStyles(n int, mode string) []string {
 	return out
 }
 
-func render(ffmpeg, tmp, src, dst, style string) error {
-	filter := "[1:v]scale=1080:608:force_original_aspect_ratio=decrease," +
-		"pad=1080:608:(ow-iw)/2:(oh-ih)/2:color=0x060610,setsar=1,fps=30[clip];" +
-		"[0:v][clip]overlay=0:656:shortest=1[b];" +
-		"[b][2:v]overlay=0:0,format=yuv420p[v]"
+// quality: "4k" (2160x3840 otimizado) ou "1080" (1080x1920 rápido)
+func render(ffmpeg, tmp, src, dst, style, quality string) error {
+	var filter string
+	var enc []string
+	if quality == "4k" {
+		// clipe: redução leve de ruído -> ampliação Lanczos -> nitidez -> leve ajuste de contraste/saturação
+		filter = "[1:v]hqdn3d=1.5:1.5:6:6," +
+			"scale=2160:1216:force_original_aspect_ratio=decrease:flags=lanczos," +
+			"pad=2160:1216:(ow-iw)/2:(oh-ih)/2:color=0x060610,setsar=1," +
+			"unsharp=5:5:0.6:5:5:0.0,eq=contrast=1.03:saturation=1.08,fps=30[clip];" +
+			"[0:v]scale=2160:3840:flags=lanczos,setsar=1[bg];" +
+			"[bg][clip]overlay=0:1312:shortest=1[b];" +
+			"[2:v]scale=2160:3840:flags=lanczos[ov];" +
+			"[b][ov]overlay=0:0,format=yuv420p[v]"
+		enc = []string{"-c:v", "libx264", "-preset", "faster", "-crf", "18", "-profile:v", "high", "-level", "5.1"}
+	} else {
+		filter = "[1:v]scale=1080:608:force_original_aspect_ratio=decrease," +
+			"pad=1080:608:(ow-iw)/2:(oh-ih)/2:color=0x060610,setsar=1,fps=30[clip];" +
+			"[0:v][clip]overlay=0:656:shortest=1[b];" +
+			"[b][2:v]overlay=0:0,format=yuv420p[v]"
+		enc = []string{"-c:v", "libx264", "-preset", "veryfast", "-crf", "20"}
+	}
 	args := []string{"-y", "-hide_banner", "-loglevel", "error", "-stats",
 		"-stream_loop", "-1", "-i", filepath.Join(tmp, "loop_"+style+".mp4"),
 		"-i", src,
 		"-i", filepath.Join(tmp, "overlay_"+style+".png"),
 		"-filter_complex", filter,
-		"-map", "[v]", "-map", "1:a?",
-		"-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-r", "30",
-		"-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", dst}
+		"-map", "[v]", "-map", "1:a?"}
+	args = append(args, enc...)
+	args = append(args, "-r", "30", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", dst)
 	cmd := exec.Command(ffmpeg, args...)
 	hideWindow(cmd)
 	cmd.Stdout = os.Stdout
@@ -145,6 +162,14 @@ func main() {
 		mode = "forja"
 	}
 
+	fmt.Println("\nQual qualidade?")
+	fmt.Println("  1 - 4K otimizado 2160x3840 (padrão, mais lento)")
+	fmt.Println("  2 - 1080p rápido 1080x1920")
+	quality := "4k"
+	if ask("Escolha [1/2] e aperte ENTER: ") == "2" {
+		quality = "1080"
+	}
+
 	tmp, err := os.MkdirTemp("", "nakama-editor-")
 	if err != nil {
 		fmt.Println("Erro ao criar pasta temporária:", err)
@@ -173,14 +198,18 @@ func main() {
 	start := time.Now()
 	for i, v := range vids {
 		base := strings.TrimSuffix(filepath.Base(v), filepath.Ext(v))
-		dst := filepath.Join(out, base+"_nakama_"+styles[i]+".mp4")
+		suffix := "_nakama_" + styles[i]
+		if quality == "4k" {
+			suffix += "_4k"
+		}
+		dst := filepath.Join(out, base+suffix+".mp4")
 		fmt.Printf("\n[%d/%d] %s  ->  %s\n", i+1, len(vids), filepath.Base(v), names[styles[i]])
 		if _, err := os.Stat(dst); err == nil {
 			fmt.Println("   já existe, pulando.")
 			skip++
 			continue
 		}
-		if err := render(ffmpeg, tmp, v, dst, styles[i]); err != nil {
+		if err := render(ffmpeg, tmp, v, dst, styles[i], quality); err != nil {
 			fmt.Println("\n   ERRO ao editar este vídeo:", err)
 			os.Remove(dst)
 			fail++
