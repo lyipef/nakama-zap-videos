@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" alt="">
+    <div>
+      <h1>Zaptaku Video Grabber</h1>
+      <p id="sub">Procurando vídeos…</p>
+    </div>
+  </header>
+  <div id="bar" hidden>
+    <label><input type="checkbox" id="all" checked> Selecionar todos</label>
+    <button id="rescan" title="Procurar de novo">↻</button>
+  </div>
+  <ul id="list"></ul>
+  <p id="prot" hidden></p>
+  <footer>
+    <button id="go" disabled>Baixar todos</button>
+    <p id="status"></p>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>

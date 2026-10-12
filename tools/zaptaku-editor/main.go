@@ -1,4 +1,4 @@
-// Nakama Editor: aplica os templates do @nakama.zap em todos os vídeos de uma pasta.
+// Zaptaku Editor: aplica os templates do @zaptaku em todos os vídeos de uma pasta.
 // Usa a GPU (NVENC / QSV / AMF) quando disponível e processa vários vídeos em paralelo.
 package main
 
@@ -27,7 +27,7 @@ var assets embed.FS
 
 var videoExt = map[string]bool{".mp4": true, ".mov": true, ".mkv": true, ".webm": true, ".avi": true, ".m4v": true}
 
-const outDirName = "nakama_editados"
+const outDirName = "zaptaku_editados"
 
 var in = bufio.NewReader(os.Stdin)
 
@@ -307,7 +307,7 @@ func render(ffmpeg, tmp string, j job, quality string, e encoder, threads int, p
 func main() {
 	setupConsole()
 	fmt.Println("==============================================")
-	fmt.Println("   NAKAMA EDITOR  -  templates @nakama.zap")
+	fmt.Println("   ZAPTAKU EDITOR  -  templates @zaptaku")
 	fmt.Println("==============================================")
 
 	folder := ""
@@ -353,7 +353,7 @@ func main() {
 		quality = "1080"
 	}
 
-	tmp, err := os.MkdirTemp("", "nakama-editor-")
+	tmp, err := os.MkdirTemp("", "zaptaku-editor-")
 	if err != nil {
 		fmt.Println("Erro ao criar pasta temporária:", err)
 		pause()
@@ -382,7 +382,7 @@ func main() {
 	if cores < 8 {
 		workers = 1
 	}
-	if v, err := strconv.Atoi(os.Getenv("NAKAMA_JOBS")); err == nil && v > 0 {
+	if v, err := strconv.Atoi(os.Getenv("ZAPTAKU_JOBS")); err == nil && v > 0 {
 		workers = v // ajuste manual opcional
 	}
 	if workers > len(vids) {
@@ -403,7 +403,7 @@ func main() {
 	skip := 0
 	for i, v := range vids {
 		base := strings.TrimSuffix(filepath.Base(v), filepath.Ext(v))
-		suffix := "_nakama_" + styles[i]
+		suffix := "_zaptaku_" + styles[i]
 		if quality == "4k" {
 			suffix += "_4k"
 		}
