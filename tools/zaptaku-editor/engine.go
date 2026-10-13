@@ -105,8 +105,8 @@ func logf(format string, a ...any) {
 	line := time.Now().Format("15:04:05 ") + fmt.Sprintf(format, a...)
 	job.mu.Lock()
 	job.logs = append(job.logs, line)
-	if len(job.logs) > 200 {
-		job.logs = job.logs[len(job.logs)-200:]
+	if len(job.logs) > 500 {
+		job.logs = job.logs[len(job.logs)-500:]
 	}
 	f := logFile
 	job.mu.Unlock()
@@ -440,7 +440,7 @@ func (j *Job) applyPause() { // chamado com j.mu travado
 func render(cfg Config, it *Item, dst string, e encoder, threads int, p probe) error {
 	part := strings.TrimSuffix(dst, ".mp4") + ".part.mp4"
 	bg, ov := assetPaths(cfg, it.Style)
-	args := []string{"-y", "-hide_banner", "-loglevel", "error", "-nostats", "-progress", "pipe:1",
+	args := []string{"-y", "-hide_banner", "-loglevel", "warning", "-nostats", "-progress", "pipe:1",
 		"-filter_complex_threads", strconv.Itoa(threads),
 		"-stream_loop", "-1", "-i", bg}
 	if e.gpu && e.hwaccel != "" {
@@ -481,8 +481,20 @@ func render(cfg Config, it *Item, dst string, e encoder, threads int, p probe) e
 		dur = float64(cfg.MaxDur)
 	}
 	sc := bufio.NewScanner(out)
+	var fps, speed string
+	lastMark := -1
+	label := "CPU"
+	if e.gpu {
+		label = "GPU"
+	}
+	logf("   [%s] %s: encoder %s, %d thread(s)", label, it.Name, e.name, threads)
 	for sc.Scan() {
 		l := sc.Text()
+		if strings.HasPrefix(l, "fps=") {
+			fps = strings.TrimPrefix(l, "fps=")
+		} else if strings.HasPrefix(l, "speed=") {
+			speed = strings.TrimSpace(strings.TrimPrefix(l, "speed="))
+		}
 		if strings.HasPrefix(l, "out_time_us=") && dur > 0 {
 			us, _ := strconv.ParseFloat(strings.TrimPrefix(l, "out_time_us="), 64)
 			pct := us / 1e6 / dur * 100
@@ -495,6 +507,10 @@ func render(cfg Config, it *Item, dst string, e encoder, threads int, p probe) e
 			job.mu.Lock()
 			it.Pct = pct
 			job.mu.Unlock()
+			if mark := int(pct) / 10 * 10; mark > lastMark {
+				lastMark = mark
+				logf("   [%s] %s: %d%% | %s fps | velocidade %s", label, it.Name, mark, fps, speed)
+			}
 		}
 	}
 	io.Copy(io.Discard, out)
@@ -874,8 +890,8 @@ func snapshot() Snapshot {
 		s.Elapsed = job.finished.Sub(job.startedAt).Seconds()
 	}
 	n := len(job.logs)
-	if n > 60 {
-		s.Logs = append([]string(nil), job.logs[n-60:]...)
+	if n > 150 {
+		s.Logs = append([]string(nil), job.logs[n-150:]...)
 	} else {
 		s.Logs = append([]string(nil), job.logs...)
 	}

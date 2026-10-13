@@ -154,7 +154,7 @@ details[open] summary::before { content: "– "; }
 .log { margin-top: 10px; border-top: 0; }
 .log summary { font: 13px var(--body); font-weight: 700; color: var(--muted-dark); }
 .log summary::before { color: var(--muted-dark); }
-.log pre { max-height: 150px; overflow: auto; background: var(--night); border-radius: 10px; padding: 10px; font-size: 12px; margin: 0; white-space: pre-wrap; color: var(--muted-dark); }
+.log pre { max-height: 220px; overflow: auto; background: var(--night); border-radius: 10px; padding: 10px; font-size: 12px; margin: 0; white-space: pre-wrap; color: var(--muted-dark); }
 .boot { position: fixed; inset: 0; display: grid; place-items: center; background: var(--night); z-index: 9; font: 18px var(--display); }
 .boot.hide { display: none; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
@@ -300,7 +300,7 @@ details[open] summary::before { content: "– "; }
       </div>
       <div class="bigbar"><i id="bigbar"></i></div>
       <div class="list" id="list"><div class="empty">Escolha a pasta com os vídeos para ver a fila aqui.</div></div>
-      <details class="log"><summary>Registro detalhado</summary><pre id="log"></pre></details>
+      <details class="log" open><summary>Registro ao vivo <button id="copyLog" type="button" style="margin-left:10px;font-size:12px;padding:2px 10px;cursor:pointer">Copiar</button></summary><pre id="log"></pre></details>
     </section>
   </div>
 </main>
@@ -478,9 +478,12 @@ function apply(data) {
   document.querySelectorAll(".sheet-body input, .sheet-body select, .sheet-body button").forEach(e => e.disabled = running);
   if (running || wasRunning) { renderList(s.items || []); totals(s.items || [], s.elapsed, s.eta); }
   if (wasRunning && !running) $("note").textContent = s.plan || "";
-  $("log").textContent = (s.logs || []).join("\n");
+  const lg = $("log"), atEnd = lg.scrollTop + lg.clientHeight >= lg.scrollHeight - 24;
+  lg.textContent = (s.logs || []).join("\n");
+  if (atEnd) lg.scrollTop = lg.scrollHeight;
 }
 
+$("copyLog").onclick = e => { e.preventDefault(); e.stopPropagation(); try { navigator.clipboard.writeText($("log").textContent); $("copyLog").textContent = "Copiado"; setTimeout(() => $("copyLog").textContent = "Copiar", 1500); } catch (_) {} };
 (async () => {
   const r = await (await fetch("/api/state")).json();
   cfg = Object.assign({}, r.defaults, r.snap.config && r.snap.config.mode ? r.snap.config : {}); fill(); apply(r);
