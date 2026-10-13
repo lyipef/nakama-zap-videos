@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zaptaku Editor</title>
+<link rel="icon" href="img/logo.png">
+<style>
+@font-face { font-family: "Dela"; src: url("fonts/Dela.ttf") format("truetype"); font-display: swap; }
+:root {
+  --night: #1B1237;      /* fundo da página */
+  --violet: #2A1B5C;     /* painéis escuros (marca) */
+  --violet-2: #3A2878;   /* trilhas / divisórias no escuro */
+  --cream: #FFF6E5;      /* folha de configuração */
+  --cream-2: #F3E6CC;    /* campos na folha creme */
+  --ink: #17111F;        /* contornos e sombras duras */
+  --muted: #6A5B86;      /* texto secundário no creme */
+  --muted-dark: #B9AEDB; /* texto secundário no escuro */
+  --yellow: #FFD23F;     /* ação principal */
+  --orange: #FF7A1A;     /* forja / destaque */
+  --blue: #7FD6FF;       /* trabalhador GPU */
+  --pink: #FF8FB1;       /* trabalhador CPU */
+  --ok: #B6F06A;         /* status: normal / pronto */
+  --warn: #FFD23F;       /* status: atenção */
+  --crit: #E63946;       /* status: quente / erro */
+  --display: "Dela", "Segoe UI Black", system-ui, sans-serif;
+  --body: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--night);
+  background-image: repeating-conic-gradient(from 0deg at 70% -20%, rgba(255,255,255,.025) 0 2deg, transparent 2deg 9deg);
+  color: var(--cream); font: 14px/1.45 var(--body);
+}
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+
+/* ---------- topo ---------- */
+.top { display: flex; align-items: center; gap: 14px; padding: 14px 22px; }
+.top img { width: 46px; height: 46px; }
+.top h1 { font: 26px/1 var(--display); margin: 0; letter-spacing: .5px; }
+.top h1 span { color: var(--yellow); }
+.state { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted-dark); }
+.badge { display: inline-flex; align-items: center; gap: 7px; padding: 5px 12px; border: 2px solid var(--ink); border-radius: 999px; background: var(--violet); color: var(--cream); font-weight: 600; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted-dark); }
+.badge.run .dot { background: var(--ok); }
+.badge.hot { background: var(--crit); }
+.badge.hot .dot, .badge.pause .dot { background: var(--yellow); }
+
+/* ---------- grade ---------- */
+.grid { display: grid; grid-template-columns: 410px 1fr; gap: 20px; padding: 0 22px 22px; height: calc(100% - 74px); }
+@media (max-width: 1000px) { .grid { grid-template-columns: 1fr; height: auto; } }
+.sheet { background: var(--cream); color: var(--ink); border: 3px solid var(--ink); border-radius: 18px; box-shadow: 7px 7px 0 var(--ink); display: flex; flex-direction: column; min-height: 0; }
+.sheet-body { padding: 18px 20px 6px; overflow: auto; flex: 1; }
+.sheet-foot { padding: 14px 20px 18px; border-top: 2px dashed #D9C9A8; }
+.sheet h2 { font: 19px/1.1 var(--display); margin: 0 0 14px; }
+.field { margin-bottom: 16px; }
+.field > label, .field > .lbl { display: block; font-weight: 700; margin-bottom: 6px; }
+.hint { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+.path { display: flex; gap: 8px; }
+.path input { flex: 1; min-width: 0; padding: 9px 11px; background: #fff; border: 2px solid var(--ink); border-radius: 10px; }
+.btn { cursor: pointer; border: 2px solid var(--ink); border-radius: 10px; padding: 8px 14px; background: var(--cream-2); color: var(--ink); font-weight: 700; }
+.btn:hover { background: #EAD9B6; }
+.btn:disabled { opacity: .45; cursor: default; }
+
+.templates { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.tpl { cursor: pointer; border: 2px solid var(--ink); border-radius: 12px; background: #fff; padding: 6px; text-align: center; font-weight: 700; font-size: 12.5px; }
+.tpl img { display: block; width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 7px; margin-bottom: 5px; }
+.tpl[aria-pressed="true"] { background: var(--yellow); box-shadow: 4px 4px 0 var(--ink); transform: translate(-2px, -2px); }
+
+.seg { display: flex; border: 2px solid var(--ink); border-radius: 10px; overflow: hidden; background: #fff; }
+.seg button { flex: 1; border: 0; background: none; padding: 8px 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
+.seg button + button { border-left: 2px solid var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--cream); }
+
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+select, .num { width: 100%; padding: 8px 10px; background: #fff; border: 2px solid var(--ink); border-radius: 10px; }
+.check { display: flex; align-items: flex-start; gap: 9px; margin: 8px 0; cursor: pointer; }
+.check input { width: 18px; height: 18px; accent-color: var(--ink); margin-top: 2px; flex: none; }
+.check small { display: block; color: var(--muted); font-size: 12.5px; }
+details { border-top: 2px dashed #D9C9A8; padding-top: 12px; margin-top: 4px; }
+summary { cursor: pointer; font: 15px var(--display); margin-bottom: 10px; list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary::before { content: "+ "; color: var(--orange); }
+details[open] summary::before { content: "– "; }
+.range { display: flex; align-items: center; gap: 10px; }
+.range input { flex: 1; accent-color: var(--orange); }
+.range output { min-width: 48px; text-align: right; font-weight: 700; }
+
+.go { width: 100%; padding: 14px; font: 18px var(--display); background: var(--yellow); color: var(--ink); border: 3px solid var(--ink); border-radius: 14px; box-shadow: 5px 5px 0 var(--ink); cursor: pointer; }
+.go:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+.ctl { display: none; gap: 8px; }
+.ctl .btn { flex: 1; padding: 11px; }
+.btn.stop { background: var(--crit); color: #fff; }
+.foot-note { font-size: 12.5px; color: var(--muted); margin-top: 8px; min-height: 18px; }
+.err { color: var(--crit); font-weight: 600; }
+
+/* ---------- coluna direita ---------- */
+.right { display: grid; grid-template-rows: auto 1fr; gap: 20px; min-height: 0; }
+.panel { background: var(--violet); border: 3px solid var(--ink); border-radius: 18px; padding: 16px 18px; min-height: 0; }
+.panel h2 { font: 17px/1.1 var(--display); margin: 0; }
+.panel-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.panel-head .sub { color: var(--muted-dark); font-size: 13px; }
+
+.gauges { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 1250px) { .gauges { grid-template-columns: 1fr; } }
+.unit { background: var(--night); border: 2px solid var(--ink); border-radius: 14px; padding: 12px 14px 10px; display: grid; grid-template-columns: 170px 1fr; gap: 12px; align-items: center; }
+.gauge { position: relative; width: 170px; height: 124px; }
+.gauge svg { width: 100%; height: 100%; overflow: visible; }
+.gauge .val { position: absolute; left: 0; right: 0; top: 48px; text-align: center; font: 34px/1 var(--display); }
+.gauge .val small { font-size: 15px; }
+.gauge .cap { position: absolute; left: 0; right: 0; top: 88px; text-align: center; font-size: 12px; color: var(--muted-dark); }
+.arc-track { fill: none; stroke: var(--violet-2); stroke-width: 14; stroke-linecap: round; }
+.arc-val { fill: none; stroke-width: 14; stroke-linecap: round; transition: stroke-dasharray .6s ease, stroke .4s; }
+.arc-edge { fill: none; stroke: var(--ink); stroke-width: 20; stroke-linecap: round; }
+.limit { stroke: var(--cream); stroke-width: 3; }
+.uname { font: 15px var(--display); margin-bottom: 2px; }
+.umodel { color: var(--muted-dark); font-size: 12px; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.status { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 12.5px; padding: 2px 9px; border-radius: 999px; border: 2px solid var(--ink); color: var(--ink); margin-bottom: 8px; }
+.stats { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: 12.5px; margin: 0; }
+.stats dt { color: var(--muted-dark); }
+.stats dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.meter { height: 6px; background: var(--violet-2); border-radius: 4px; margin-top: 3px; overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--cream); border-radius: 4px; transition: width .6s; }
+.spark { grid-column: 1 / -1; position: relative; }
+.spark svg { width: 100%; height: 64px; display: block; }
+.spark .tip { position: absolute; top: -8px; transform: translate(-50%, -100%); background: var(--cream); color: var(--ink); border: 2px solid var(--ink); border-radius: 8px; padding: 1px 8px; font-size: 12px; font-weight: 700; pointer-events: none; white-space: nowrap; display: none; }
+.spark-cap { display: flex; justify-content: space-between; color: var(--muted-dark); font-size: 11.5px; }
+.banner { display: none; margin-top: 14px; padding: 10px 14px; border: 2px solid var(--ink); border-radius: 12px; background: var(--crit); color: #fff; font-weight: 700; }
+.banner.show { display: block; }
+
+/* ---------- fila ---------- */
+.queue { display: flex; flex-direction: column; }
+.totals { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; margin-bottom: 10px; font-size: 13px; color: var(--muted-dark); }
+.totals b { color: var(--cream); font-size: 15px; font-variant-numeric: tabular-nums; }
+.bigbar { height: 14px; border: 2px solid var(--ink); border-radius: 999px; background: var(--night); overflow: hidden; margin-bottom: 12px; }
+.bigbar i { display: block; height: 100%; width: 0; background: var(--yellow); transition: width .6s; }
+.list { overflow: auto; flex: 1; min-height: 120px; border-top: 2px solid var(--violet-2); }
+.it { display: grid; grid-template-columns: 1fr 96px 160px 70px; gap: 12px; align-items: center; padding: 9px 4px; border-bottom: 1px solid var(--violet-2); font-size: 13px; }
+.it .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+.it .nm small { display: block; color: var(--muted-dark); font-weight: 400; overflow: hidden; text-overflow: ellipsis; }
+.chip { justify-self: start; font-weight: 700; font-size: 12px; padding: 2px 9px; border-radius: 999px; border: 2px solid var(--ink); color: var(--ink); white-space: nowrap; }
+.c-pronto, .c-ok { background: var(--ok); }
+.c-fila { background: var(--violet-2); color: var(--muted-dark); border-color: var(--violet-2); }
+.c-GPU { background: var(--blue); }
+.c-CPU { background: var(--pink); }
+.c-erro { background: var(--crit); color: #fff; }
+.c-cancelado { background: #8b7fb0; }
+.pbar { height: 8px; background: var(--night); border-radius: 4px; overflow: hidden; }
+.pbar i { display: block; height: 100%; background: var(--cream); transition: width .8s; }
+.it .tm { text-align: right; color: var(--muted-dark); font-variant-numeric: tabular-nums; }
+.empty { padding: 26px 8px; color: var(--muted-dark); }
+.log { margin-top: 10px; border-top: 0; }
+.log summary { font: 13px var(--body); font-weight: 700; color: var(--muted-dark); }
+.log summary::before { color: var(--muted-dark); }
+.log pre { max-height: 150px; overflow: auto; background: var(--night); border-radius: 10px; padding: 10px; font-size: 12px; margin: 0; white-space: pre-wrap; color: var(--muted-dark); }
+.boot { position: fixed; inset: 0; display: grid; place-items: center; background: var(--night); z-index: 9; font: 18px var(--display); }
+.boot.hide { display: none; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="boot" id="boot">Abrindo o Zaptaku Editor…</div>
+
+<header class="top">
+  <img src="img/logo.png" alt="">
+  <h1>Zaptaku <span>Editor</span></h1>
+  <div class="state">
+    <span id="engineTxt"></span>
+    <span class="badge" id="badge"><span class="dot"></span><span id="badgeTxt">Pronto para editar</span></span>
+  </div>
+</header>
+
+<main class="grid">
+  <section class="sheet" aria-label="Configuração">
+    <div class="sheet-body">
+      <h2>O que editar</h2>
+      <div class="field">
+        <label for="folder">Pasta com os vídeos</label>
+        <div class="path"><input id="folder" placeholder="Escolha a pasta dos clipes" spellcheck="false"><button class="btn" data-pick="folder">Escolher</button></div>
+        <div class="hint" id="scanHint"></div>
+      </div>
+      <div class="field">
+        <label for="out">Salvar em</label>
+        <div class="path"><input id="out" placeholder="Padrão: subpasta zaptaku_editados" spellcheck="false"><button class="btn" data-pick="out">Escolher</button></div>
+      </div>
+
+      <div class="field">
+        <span class="lbl">Template</span>
+        <div class="templates" id="mode">
+          <button class="tpl" data-v="aleatorio"><img src="img/aleatorio.png" alt="">Alternar os dois</button>
+          <button class="tpl" data-v="hud"><img src="img/hud.png" alt="">Tela de RPG</button>
+          <button class="tpl" data-v="forja"><img src="img/forja.png" alt="">Forja</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="lbl">Qualidade</span>
+        <div class="seg" id="quality"><button data-v="4k">4K otimizado</button><button data-v="1080">1080p rápido</button></div>
+        <div class="hint">4K vale para o YouTube; o TikTok reduz tudo para 1080p.</div>
+      </div>
+
+      <div class="field">
+        <span class="lbl">Motor de vídeo</span>
+        <div class="seg" id="engine"><button data-v="auto">GPU + CPU</button><button data-v="gpu">Só GPU</button><button data-v="cpu">Só CPU</button></div>
+      </div>
+
+      <details>
+        <summary>Melhorias de imagem e áudio</summary>
+        <label class="check"><input type="checkbox" id="denoise"><span>Reduzir ruído<small>Limpa granulado e blocos de compressão antes de ampliar.</small></span></label>
+        <label class="check"><input type="checkbox" id="sharpen"><span>Nitidez adaptativa<small>Realça bordas sem criar halos.</small></span></label>
+        <label class="check"><input type="checkbox" id="color"><span>Realçar cores<small>Um pouco mais de contraste e saturação.</small></span></label>
+        <div class="field" style="margin-top:12px">
+          <label for="volume">Volume do áudio original</label>
+          <div class="range"><input type="range" id="volume" min="0" max="200" step="5"><output id="volumeOut"></output></div>
+        </div>
+        <label class="check"><input type="checkbox" id="normalize"><span>Igualar volume entre vídeos<small>Deixa todos no padrão das redes (−14 LUFS).</small></span></label>
+        <div class="field" style="margin-top:12px">
+          <label for="maxDur">Duração máxima de cada vídeo</label>
+          <select id="maxDur"><option value="0">Sem limite</option><option value="60">Até 1 minuto</option><option value="90">Até 1min30</option><option value="180">Até 3 minutos</option></select>
+        </div>
+      </details>
+
+      <details>
+        <summary>Desempenho e segurança</summary>
+        <div class="row2 field">
+          <div><label for="gpuJobs">Vídeos por vez na GPU</label><select id="gpuJobs"><option value="0">Automático</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+          <div><label for="cpuJobs">Vídeos por vez na CPU</label><select id="cpuJobs"><option value="-1">Automático</option><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+        </div>
+        <div class="field">
+          <label for="priority">Prioridade no Windows</label>
+          <select id="priority"><option value="normal">Normal (mais rápido)</option><option value="baixa">Baixa (dá para usar o PC enquanto edita)</option></select>
+        </div>
+        <div class="row2 field">
+          <div><label for="gpuMax">Pausar GPU em</label><div class="range"><input type="range" id="gpuMax" min="70" max="90"><output id="gpuMaxOut"></output></div></div>
+          <div><label for="cpuMax">Pausar CPU em</label><div class="range"><input type="range" id="cpuMax" min="75" max="98"><output id="cpuMaxOut"></output></div></div>
+        </div>
+        <div class="hint" style="margin-top:-8px;margin-bottom:12px">Retoma sozinho quando esfriar 8°C (GPU) ou 10°C (CPU) abaixo do limite.</div>
+        <label class="check"><input type="checkbox" id="rework"><span>Refazer os que já estão prontos<small>Por padrão, vídeos já editados nessa qualidade são pulados.</small></span></label>
+        <div class="field" style="margin-top:12px">
+          <label for="onFinish">Quando terminar</label>
+          <select id="onFinish"><option value="abrir">Abrir a pasta dos editados</option><option value="nada">Não fazer nada</option><option value="desligar">Desligar o PC (com 60s para cancelar)</option></select>
+        </div>
+      </details>
+    </div>
+    <div class="sheet-foot">
+      <button class="go" id="start">Iniciar edição</button>
+      <div class="ctl" id="ctl">
+        <button class="btn" id="pause">Pausar</button>
+        <button class="btn stop" id="cancel">Cancelar</button>
+      </div>
+      <div class="foot-note" id="note"></div>
+    </div>
+  </section>
+
+  <div class="right">
+    <section class="panel" aria-label="Temperatura e uso">
+      <div class="panel-head"><h2>Temperatura e uso</h2><span class="sub">atualiza a cada 2 segundos</span></div>
+      <div class="gauges">
+        <div class="unit">
+          <div class="gauge" id="gpuGauge"></div>
+          <div>
+            <div class="uname">Placa de vídeo</div>
+            <div class="umodel" id="gpuModel">procurando…</div>
+            <div class="status" id="gpuStatus"></div>
+            <dl class="stats">
+              <dt>Uso</dt><dd><span id="gpuUtil">–</span><div class="meter"><i id="gpuUtilBar"></i></div></dd>
+              <dt>Memória</dt><dd id="gpuMem">–</dd>
+              <dt>Consumo</dt><dd id="gpuPow">–</dd>
+              <dt>Ventoinha</dt><dd id="gpuFan">–</dd>
+            </dl>
+          </div>
+          <div class="spark" id="gpuSpark"></div>
+        </div>
+        <div class="unit">
+          <div class="gauge" id="cpuGauge"></div>
+          <div>
+            <div class="uname">Processador</div>
+            <div class="umodel" id="cpuModel">–</div>
+            <div class="status" id="cpuStatus"></div>
+            <dl class="stats">
+              <dt>Uso</dt><dd><span id="cpuUtil">–</span><div class="meter"><i id="cpuUtilBar"></i></div></dd>
+              <dt>RAM</dt><dd id="ram">–</dd>
+            </dl>
+          </div>
+          <div class="spark" id="cpuSpark"></div>
+        </div>
+      </div>
+      <div class="banner" id="hotBanner"></div>
+    </section>
+
+    <section class="panel queue" aria-label="Fila de vídeos">
+      <div class="panel-head"><h2>Fila</h2><span class="sub" id="plan"></span></div>
+      <div class="totals">
+        <span><b id="tDone">0</b> de <b id="tAll">0</b> prontos</span>
+        <span>Tempo: <b id="tEl">–</b></span>
+        <span>Falta: <b id="tEta">–</b></span>
+        <button class="btn" id="openOut" style="margin-left:auto;padding:5px 12px;background:var(--cream)">Abrir pasta dos editados</button>
+      </div>
+      <div class="bigbar"><i id="bigbar"></i></div>
+      <div class="list" id="list"><div class="empty">Escolha a pasta com os vídeos para ver a fila aqui.</div></div>
+      <details class="log"><summary>Registro detalhado</summary><pre id="log"></pre></details>
+    </section>
+  </div>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+let cfg = {}, snap = null, running = false, scanTimer = null;
+
+// ---------- formulário ----------
+function bindSeg(id, key) {
+  $(id).querySelectorAll("[data-v]").forEach(b => b.addEventListener("click", () => { cfg[key] = b.dataset.v; paintSeg(id, key); save(); }));
+}
+function paintSeg(id, key) { $(id).querySelectorAll("[data-v]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === cfg[key]))); }
+const checks = ["denoise", "sharpen", "color", "normalize", "rework"];
+const selects = { maxDur: "int", gpuJobs: "int", cpuJobs: "int", priority: "str", onFinish: "str" };
+function fill() {
+  $("folder").value = cfg.folder || ""; $("out").value = cfg.out || "";
+  paintSeg("mode", "mode"); paintSeg("quality", "quality"); paintSeg("engine", "engine");
+  checks.forEach(k => $(k).checked = !!cfg[k]);
+  Object.keys(selects).forEach(k => $(k).value = String(cfg[k]));
+  $("volume").value = cfg.volume; $("gpuMax").value = cfg.gpuMax; $("cpuMax").value = cfg.cpuMax; outs();
+}
+function outs() { $("volumeOut").value = cfg.volume + "%"; $("gpuMaxOut").value = cfg.gpuMax + "°C"; $("cpuMaxOut").value = cfg.cpuMax + "°C"; }
+function read() {
+  cfg.folder = $("folder").value.trim(); cfg.out = $("out").value.trim();
+  checks.forEach(k => cfg[k] = $(k).checked);
+  Object.entries(selects).forEach(([k, t]) => cfg[k] = t === "int" ? parseInt($(k).value, 10) : $(k).value);
+  cfg.volume = +$("volume").value; cfg.gpuMax = +$("gpuMax").value; cfg.cpuMax = +$("cpuMax").value;
+  cfg.gpuResume = cfg.gpuMax - 8; cfg.cpuResume = cfg.cpuMax - 10;
+  outs();
+}
+function save() { read(); if (!running) { clearTimeout(scanTimer); scanTimer = setTimeout(scan, 350); } }
+document.querySelectorAll(".sheet input, .sheet select").forEach(el => el.addEventListener(el.type === "range" ? "input" : "change", save));
+bindSeg("mode", "mode"); bindSeg("quality", "quality"); bindSeg("engine", "engine");
+document.querySelectorAll("[data-pick]").forEach(b => b.addEventListener("click", async () => {
+  b.disabled = true;
+  const r = await (await fetch("/api/pick?kind=" + b.dataset.pick)).json();
+  b.disabled = false;
+  if (r.path) { $(b.dataset.pick).value = r.path; save(); }
+}));
+
+async function scan() {
+  if (!cfg.folder) { $("scanHint").textContent = ""; return; }
+  const r = await (await fetch("/api/scan", { method: "POST", body: JSON.stringify(cfg) })).json();
+  if (r.error) { $("scanHint").innerHTML = `<span class="err">${r.error}</span>`; renderList([]); totals([], 0, -1); return; }
+  const items = r.items || [], done = items.filter(i => i.status === "pronto").length;
+  $("scanHint").textContent = items.length ? `${items.length} vídeo(s) na pasta: ${done} já pronto(s), ${items.length - done} para editar.` : "Nenhum vídeo nessa pasta (.mp4, .mov, .mkv, .webm, .avi, .m4v).";
+  renderList(items); totals(items, 0, -1);
+}
+
+// ---------- ações ----------
+$("start").addEventListener("click", async () => {
+  read(); $("note").textContent = "";
+  if (!cfg.folder) { $("note").innerHTML = '<span class="err">Escolha a pasta com os vídeos primeiro.</span>'; return; }
+  const r = await (await fetch("/api/start", { method: "POST", body: JSON.stringify(cfg) })).json();
+  if (r.error) $("note").innerHTML = `<span class="err">${r.error}</span>`;
+});
+$("pause").addEventListener("click", () => fetch("/api/pause?on=" + (snap && snap.paused ? "0" : "1")));
+$("cancel").addEventListener("click", () => { if (confirm("Cancelar a edição? Os vídeos já prontos ficam salvos e da próxima vez ele continua de onde parou.")) fetch("/api/cancel"); });
+$("openOut").addEventListener("click", () => fetch("/api/open"));
+
+// ---------- medidores ----------
+const RANGE = [20, 100];
+function zone(t, max) { if (t < 0) return ["nd", "var(--violet-2)", "Sem sensor"]; if (t >= max) return ["crit", "var(--crit)", "■ Quente"]; if (t >= max - 10) return ["warn", "var(--warn)", "▲ Esquentando"]; return ["ok", "var(--ok)", "● Normal"]; }
+function polar(cx, cy, r, a) { const rad = (a - 90) * Math.PI / 180; return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)]; }
+function arcPath(cx, cy, r, a0, a1) { const [x0, y0] = polar(cx, cy, r, a0), [x1, y1] = polar(cx, cy, r, a1); return `M${x0} ${y0} A${r} ${r} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${x1} ${y1}`; }
+const A0 = -120, A1 = 120, R = 66, CX = 85, CY = 82, LEN = 2 * Math.PI * R * (240 / 360);
+function gaugeInit(id) {
+  const [lx, ly] = polar(CX, CY, R + 20, A0), [hx, hy] = polar(CX, CY, R + 20, A1);
+  $(id).innerHTML = `<svg viewBox="0 0 170 130" aria-hidden="true">
+    <path class="arc-edge" d="${arcPath(CX, CY, R, A0, A1)}"/>
+    <path class="arc-track" d="${arcPath(CX, CY, R, A0, A1)}"/>
+    <path class="arc-val" d="${arcPath(CX, CY, R, A0, A1)}" stroke-dasharray="0 ${LEN}"/>
+    <line class="limit"/>
+    <text x="${lx}" y="${ly + 4}" fill="#B9AEDB" font-size="10" text-anchor="middle">${RANGE[0]}°</text>
+    <text x="${hx}" y="${hy + 4}" fill="#B9AEDB" font-size="10" text-anchor="middle">${RANGE[1]}°</text>
+  </svg><div class="val">–</div><div class="cap">temperatura</div>`;
+}
+function gaugeSet(id, t, max) {
+  const el = $(id), [, color] = zone(t, max);
+  const f = t < 0 ? 0 : Math.max(0, Math.min(1, (t - RANGE[0]) / (RANGE[1] - RANGE[0])));
+  const v = el.querySelector(".arc-val"); v.setAttribute("stroke-dasharray", `${f * LEN} ${LEN}`); v.style.stroke = color;
+  const la = A0 + (A1 - A0) * (max - RANGE[0]) / (RANGE[1] - RANGE[0]);
+  const [x0, y0] = polar(CX, CY, R - 12, la), [x1, y1] = polar(CX, CY, R + 12, la);
+  const l = el.querySelector(".limit"); l.setAttribute("x1", x0); l.setAttribute("y1", y0); l.setAttribute("x2", x1); l.setAttribute("y2", y1);
+  el.querySelector(".val").innerHTML = t < 0 ? "–" : `${t}<small>°C</small>`;
+  el.querySelector(".cap").textContent = `pausa em ${max}°C`;
+}
+function statusSet(id, t, max) {
+  const [z, color, txt] = zone(t, max), s = $(id);
+  s.textContent = txt; s.style.background = color;
+  s.style.color = z === "crit" ? "#fff" : z === "nd" ? "var(--muted-dark)" : "var(--ink)";
+}
+
+// histórico de ~5 min com a linha do limite e dica ao passar o mouse
+function spark(id, hist, key, max) {
+  const el = $(id), W = 600, H = 64, pad = 4, n = 150;
+  const pts = hist.map((h, i) => ({ i, t: h.t, v: h[key] })).filter(p => p.v >= 0);
+  if (!el.dataset.init) { el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Temperatura nos últimos 5 minutos"></svg><div class="tip"></div><div class="spark-cap"><span>5 min atrás</span><span>agora</span></div>`; el.dataset.init = 1; }
+  const svg = el.querySelector("svg");
+  const y = v => H - pad - (Math.max(RANGE[0], Math.min(RANGE[1], v)) - RANGE[0]) / (RANGE[1] - RANGE[0]) * (H - 2 * pad);
+  const x = i => (i + (n - hist.length)) / (n - 1) * W;
+  let d = "", a = "";
+  pts.forEach((p, k) => { d += (k ? "L" : "M") + x(p.i).toFixed(1) + " " + y(p.v).toFixed(1); });
+  if (pts.length) a = d + `L${x(pts[pts.length - 1].i)} ${H}L${x(pts[0].i)} ${H}Z`;
+  svg.innerHTML = `<line x1="0" x2="${W}" y1="${y(max)}" y2="${y(max)}" stroke="#E63946" stroke-width="1.5" stroke-dasharray="5 5" vector-effect="non-scaling-stroke"/>
+    <path d="${a}" fill="rgba(255,246,229,.08)"/><path d="${d}" fill="none" stroke="#FFF6E5" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
+    <line class="xh" x1="0" x2="0" y1="0" y2="${H}" stroke="#B9AEDB" stroke-width="1" vector-effect="non-scaling-stroke" visibility="hidden"/>
+    <rect width="${W}" height="${H}" fill="transparent"/>`;
+  const tip = el.querySelector(".tip"), xh = svg.querySelector(".xh");
+  svg.onmousemove = e => {
+    if (!pts.length) return;
+    const r = svg.getBoundingClientRect(), fx = (e.clientX - r.left) / r.width * W;
+    let best = pts[0]; pts.forEach(p => { if (Math.abs(x(p.i) - fx) < Math.abs(x(best.i) - fx)) best = p; });
+    const ago = Math.round(Date.now() / 1000 - best.t);
+    tip.textContent = `${best.v}°C, ${ago < 5 ? "agora" : "há " + fmt(ago)}`; tip.style.display = "block";
+    tip.style.left = (x(best.i) / W * r.width) + "px"; xh.setAttribute("x1", x(best.i)); xh.setAttribute("x2", x(best.i)); xh.setAttribute("visibility", "visible");
+  };
+  svg.onmouseleave = () => { tip.style.display = "none"; xh.setAttribute("visibility", "hidden"); };
+}
+gaugeInit("gpuGauge"); gaugeInit("cpuGauge");
+
+// ---------- fila ----------
+function fmt(s) { if (s < 0 || !isFinite(s)) return "calculando…"; s = Math.round(s); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), ss = s % 60; return h ? `${h}h${String(m).padStart(2, "0")}` : m ? `${m}min ${String(ss).padStart(2, "0")}s` : `${ss}s`; }
+const styleName = { hud: "Tela de RPG", forja: "Forja" };
+const esc = s => String(s || "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+function chip(it) {
+  if (it.status === "rodando") return `<span class="chip c-${it.worker}">${it.worker} ${Math.round(it.pct)}%</span>`;
+  const t = { pronto: "Já pronto", ok: "Pronto", fila: "Na fila", erro: "Erro", cancelado: "Cancelado" }[it.status] || it.status;
+  return `<span class="chip c-${it.status}" title="${esc(it.err)}">${t}</span>`;
+}
+function renderList(items) {
+  if (!items.length) { $("list").innerHTML = '<div class="empty">Escolha a pasta com os vídeos para ver a fila aqui.</div>'; return; }
+  const order = { rodando: 0, fila: 1, erro: 2, cancelado: 3, ok: 4, pronto: 5 };
+  const s = [...items].sort((a, b) => (order[a.status] ?? 9) - (order[b.status] ?? 9) || a.idx - b.idx);
+  $("list").innerHTML = s.map(it => {
+    const sub = it.status === "erro" ? it.err : it.out ? it.out : it.style ? styleName[it.style] : (it.dur ? fmt(it.dur) + " de vídeo" : "");
+    return `<div class="it"><div class="nm">${esc(it.name)}<small>${esc(sub)}</small></div>${chip(it)}
+      <div class="pbar"><i style="width:${it.status === "fila" ? 0 : it.pct}%"></i></div><div class="tm">${it.secs ? fmt(it.secs) : ""}</div></div>`;
+  }).join("");
+}
+function totals(items, el, eta) {
+  const all = items.length, done = items.filter(i => i.status === "ok" || i.status === "pronto").length;
+  const pct = all ? items.reduce((a, i) => a + (i.status === "ok" || i.status === "pronto" ? 100 : i.status === "rodando" ? i.pct : 0), 0) / all : 0;
+  $("tDone").textContent = done; $("tAll").textContent = all; $("bigbar").style.width = pct + "%";
+  $("tEl").textContent = el ? fmt(el) : "–"; $("tEta").textContent = running ? fmt(eta) : "–";
+}
+
+// ---------- estado ao vivo ----------
+function apply(data) {
+  if (!data.ready && !data.readyErr) $("boot").textContent = "Preparando o motor de vídeo (só demora na primeira vez)…";
+  else $("boot").classList.add("hide");
+  if (data.readyErr) $("note").innerHTML = `<span class="err">Não consegui preparar o motor de vídeo: ${esc(data.readyErr)}</span>`;
+  const s = data.snap; snap = s; const wasRunning = running; running = s.running;
+  const t = s.tele, c = running ? s.config : cfg;
+  gaugeSet("gpuGauge", t.gpu.temp, c.gpuMax || 83); statusSet("gpuStatus", t.gpu.temp, c.gpuMax || 83);
+  gaugeSet("cpuGauge", t.cpu.temp, c.cpuMax || 90); statusSet("cpuStatus", t.cpu.temp, c.cpuMax || 90);
+  $("gpuModel").textContent = t.gpu.ok ? t.gpu.name : "Sem leitura da NVIDIA";
+  $("gpuUtil").textContent = t.gpu.ok ? t.gpu.util + "%" : "–"; $("gpuUtilBar").style.width = (t.gpu.util || 0) + "%";
+  $("gpuMem").textContent = t.gpu.ok ? `${(t.gpu.memUsed / 1024).toFixed(1)} de ${(t.gpu.memTotal / 1024).toFixed(0)} GB` : "–";
+  $("gpuPow").textContent = t.gpu.ok && t.gpu.power ? Math.round(t.gpu.power) + " W" : "–";
+  $("gpuFan").textContent = t.gpu.ok && t.gpu.fan >= 0 ? t.gpu.fan + "%" : "–";
+  $("cpuModel").textContent = `${t.cpu.threads} threads` + (t.cpu.temp < 0 ? ", sem sensor de temperatura" : "");
+  $("cpuUtil").textContent = t.cpu.usage + "%"; $("cpuUtilBar").style.width = t.cpu.usage + "%";
+  $("ram").textContent = t.cpu.ramTotal ? `${t.cpu.ramUsed.toFixed(1)} de ${t.cpu.ramTotal.toFixed(0)} GB` : "–";
+  spark("gpuSpark", t.hist, "gt", c.gpuMax || 83); spark("cpuSpark", t.hist, "ct", c.cpuMax || 90);
+  $("hotBanner").classList.toggle("show", s.hot);
+  $("hotBanner").textContent = s.hot ? `Pausado por temperatura (${s.hotReason}). Continua sozinho quando esfriar.` : "";
+  const b = $("badge"); b.className = "badge" + (s.hot ? " hot" : s.paused ? " pause" : running ? " run" : "");
+  $("badgeTxt").textContent = s.hot ? "Esfriando" : s.paused ? "Pausado" : running ? "Editando" : "Pronto para editar";
+  $("engineTxt").textContent = s.encoder ? "Motor: " + s.encoder : "";
+  $("plan").textContent = s.plan || "";
+  $("start").style.display = running ? "none" : "block"; $("ctl").style.display = running ? "flex" : "none";
+  $("pause").textContent = s.paused ? "Retomar" : "Pausar";
+  document.querySelectorAll(".sheet-body input, .sheet-body select, .sheet-body button").forEach(e => e.disabled = running);
+  if (running || wasRunning) { renderList(s.items || []); totals(s.items || [], s.elapsed, s.eta); }
+  if (wasRunning && !running) $("note").textContent = s.plan || "";
+  $("log").textContent = (s.logs || []).join("\n");
+}
+
+(async () => {
+  const r = await (await fetch("/api/state")).json();
+  cfg = Object.assign({}, r.defaults, r.snap.config && r.snap.config.mode ? r.snap.config : {}); fill(); apply(r);
+  if (!r.snap.running) scan();
+  const es = new EventSource("/api/events");
+  es.onmessage = e => apply(JSON.parse(e.data));
+  es.onerror = () => { $("badgeTxt").textContent = "Reconectando…"; };
+})();
+</script>
+</body>
+</html>
