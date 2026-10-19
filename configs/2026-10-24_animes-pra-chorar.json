@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s101/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-10-24_animes-pra-chorar_zaptaku.mp4",
+ "hook_pill": "PEGA O LENÇO",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "PRA CHORAR",
+   "YEL",
+   130
+  ],
+  [
+   "E DEPOIS",
+   "CREAM",
+   120
+  ],
+  [
+   "AGRADECER",
+   "YEL",
+   120
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS FORTE",
+ "promise_pill": "O ÚLTIMO É O MAIS FORTE",
+ "last_pill": "O QUE MAIS EMOCIONA",
+ "rating_label": "NÍVEL DE LÁGRIMA",
+ "rating_color": "ORA",
+ "items": [
+  {
+   "title": "CLANNAD",
+   "badge": "ANIME 1",
+   "premise": "After Story: rapaz sem rumo reconstrói a vida.",
+   "why": "Começa leve e vira um dos dramas de família mais fortes do anime.",
+   "rating": 5,
+   "col": "ORA"
+  },
+  {
+   "title": "SHIGATSU",
+   "badge": "ANIME 2",
+   "premise": "Your Lie in April: pianista travado volta à música.",
+   "why": "A música conduz a emoção, e o final fica na cabeça por dias.",
+   "rating": 5,
+   "col": "BLUE"
+  },
+  {
+   "title": "SILENT",
+   "badge": "ANIME 3",
+   "premise": "A Silent Voice: garoto tenta se redimir com colega.",
+   "why": "Fala de culpa e perdão sem fazer discurso pronto.",
+   "rating": 4,
+   "col": "PINK"
+  },
+  {
+   "title": "FRUITS",
+   "badge": "ANIME 4",
+   "premise": "Fruits Basket: garota descobre família amaldiçoada.",
+   "why": "Os personagens machucados vão se curando juntos, e dá aperto no peito.",
+   "rating": 4,
+   "col": "GREEN"
+  },
+  {
+   "title": "MARCH LION",
+   "badge": "ANIME 5",
+   "premise": "Sangatsu no Lion: jovem jogador de shogi solitário.",
+   "why": "Cuida da solidão com delicadeza e muito acolhimento.",
+   "rating": 3,
+   "col": "YEL"
+  },
+  {
+   "title": "AME E YUKI",
+   "badge": "ANIME 6",
+   "premise": "Os Filhos do Lobo: mãe cria dois filhos meio-lobos.",
+   "why": "Fala de crescer e deixar os filhos escolherem o próprio caminho.",
+   "rating": 4,
+   "col": "RED"
+  },
+  {
+   "title": "HOTARU",
+   "badge": "ANIME 7",
+   "premise": "Túmulo dos Vaga-lumes: irmãos tentam sobreviver à guerra.",
+   "why": "Clássico curto que muita gente vê uma vez só, de tão pesado.",
+   "rating": 5,
+   "col": "ORA"
+  }
+ ],
+ "cta_title": [
+  "QUAL FEZ",
+  "VOCÊ CHORAR?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA O SEU",
+   "CREAM"
+  ],
+  [
+   "SALVA PRA ASSISTIR DEPOIS",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Nível de lágrima = opinião do @zaptaku",
+ "style": "forja"
+}

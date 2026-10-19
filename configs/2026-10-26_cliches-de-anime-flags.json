@@ -1,0 +1,104 @@
+{
+ "kind": "flag",
+ "bg": "stripes",
+ "wav": "/home/claude/music/s102/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-10-26_cliches-de-anime-flags_zaptaku.mp4",
+ "hook_pill": "AMA OU ODEIA?",
+ "hook_lines": [
+  [
+   "7 CLICHÊS",
+   "CREAM",
+   150
+  ],
+  [
+   "DE ANIME",
+   "YEL",
+   150
+  ],
+  [
+   "RED FLAG",
+   "CREAM",
+   130
+  ],
+  [
+   "OU GREEN?",
+   "YEL",
+   130
+  ]
+ ],
+ "hook_box": "O #7 DIVIDE TODO MUNDO",
+ "promise_pill": "O #7 DIVIDE TODO MUNDO",
+ "last_pill": "O MAIS POLÊMICO",
+ "rating_label": "NÍVEL DE RED FLAG",
+ "items": [
+  {
+   "flag": "EPISÓDIO NA PRAIA OU NAS TERMAS",
+   "why": "Entra em qualquer gênero, até onde ninguém pediu.",
+   "green": "Vale quando é pausa leve entre arcos pesados.",
+   "rating": 2,
+   "col": "BLUE"
+  },
+  {
+   "flag": "PROTAGONISTA ACORDA ATRASADO COM TORRADA NA BOCA",
+   "why": "A cena que todo mundo já viu mil vezes.",
+   "green": "Charme de slice of life, quando tem graça.",
+   "rating": 1,
+   "col": "PINK"
+  },
+  {
+   "flag": "AMNÉSIA NO MEIO DA HISTÓRIA",
+   "why": "Resolve o enredo na marra e perde tensão.",
+   "green": "Funciona quando a memória é parte do mistério.",
+   "rating": 3,
+   "col": "GREEN"
+  },
+  {
+   "flag": "HARÉM EM TODO ANIME",
+   "why": "Roubam o espaço da história principal.",
+   "green": "Rende comédia boa quando assume que é piada.",
+   "rating": 4,
+   "col": "YEL"
+  },
+  {
+   "flag": "TREINO DE 20 EPISÓDIOS ANTES DA LUTA",
+   "why": "O hype acaba antes da luta começar.",
+   "green": "Dá peso à vitória quando o treino tem história.",
+   "rating": 3,
+   "col": "BLUE"
+  },
+  {
+   "flag": "O PODER DA AMIZADE VENCE TUDO",
+   "why": "Resolve qualquer problema na última hora.",
+   "green": "Emociona quando o laço foi construído desde o começo.",
+   "rating": 3,
+   "col": "PINK"
+  },
+  {
+   "flag": "EPISÓDIO FILLER NO MEIO DO ARCO",
+   "why": "Segura a história bem na melhor parte.",
+   "green": "Às vezes dá respiro e desenvolve personagem secundário.",
+   "rating": 5,
+   "col": "ORA"
+  }
+ ],
+ "cta_title": [
+  "QUAL VOCÊ",
+  "PERDOA?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA O NÚMERO",
+   "CREAM"
+  ],
+  [
+   "MARCA QUEM AMA UM CLICHÊ",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Nível de red flag = opinião do @zaptaku",
+ "style": "hud"
+}
