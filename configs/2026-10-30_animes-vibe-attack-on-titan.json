@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s111/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-10-30_animes-vibe-attack-on-titan_zaptaku.mp4",
+ "hook_pill": "CURTIU ATTACK ON TITAN?",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "PRA QUEM",
+   "YEL",
+   130
+  ],
+  [
+   "CURTIU",
+   "CREAM",
+   130
+  ],
+  [
+   "SHINGEKI",
+   "YEL",
+   150
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS BRUTAL",
+ "promise_pill": "O ÚLTIMO É O MAIS BRUTAL",
+ "last_pill": "O MAIS BRUTAL",
+ "rating_label": "NÍVEL DE TENSÃO",
+ "rating_color": "ORA",
+ "items": [
+  {
+   "title": "FIRE FORCE",
+   "badge": "ANIME 1",
+   "premise": "Bombeiros enfrentam pessoas que viram chamas vivas.",
+   "why": "Mundo em colapso e segredos grandes, com mais ação.",
+   "rating": 3,
+   "col": "BLUE"
+  },
+  {
+   "title": "VINLAND SAGA",
+   "badge": "ANIME 2",
+   "premise": "Um jovem guerreiro viking busca vingança e muda no caminho.",
+   "why": "Guerra, perda e dilemas morais pesados.",
+   "rating": 4,
+   "col": "GREEN"
+  },
+  {
+   "title": "CLAYMORE",
+   "badge": "ANIME 3",
+   "premise": "Guerreiras meio monstros caçam demônios que devoram humanos.",
+   "why": "Clima sombrio e sacrifício a cada luta.",
+   "rating": 4,
+   "col": "PINK"
+  },
+  {
+   "title": "BERSERK (1997)",
+   "badge": "ANIME 4",
+   "premise": "Um mercenário solitário enfrenta um mundo cruel.",
+   "why": "Fantasia sombria que inspirou muitos autores.",
+   "rating": 5,
+   "col": "YEL"
+  },
+  {
+   "title": "PROMISED NEVERLAND",
+   "badge": "ANIME 5",
+   "premise": "Crianças descobrem o segredo do orfanato e planejam fugir.",
+   "why": "Tensão e estratégia no estilo gato e rato.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "DEATH NOTE",
+   "badge": "ANIME 6",
+   "premise": "Um estudante encontra um caderno que mata quem tiver o nome escrito.",
+   "why": "Duelo de mentes com reviravolta a cada episódio.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "HELLSING ULTIMATE",
+   "badge": "ANIME 7",
+   "premise": "Uma organização secreta caça vampiros com um monstro do próprio lado.",
+   "why": "Violento, sombrio e cheio de estilo.",
+   "rating": 5,
+   "col": "RED"
+  }
+ ],
+ "cta_title": [
+  "CURTIU A",
+  "LISTA?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA QUAL VOCÊ JÁ VIU",
+   "CREAM"
+  ],
+  [
+   "SALVA PRA MONTAR SUA LISTA",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "hud"
+}

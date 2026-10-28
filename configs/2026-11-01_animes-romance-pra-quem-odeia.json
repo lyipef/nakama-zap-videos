@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s112/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-01_animes-romance-pra-quem-odeia_zaptaku.mp4",
+ "hook_pill": "ODEIA ROMANCE?",
+ "hook_lines": [
+  [
+   "7 ROMANCES",
+   "CREAM",
+   140
+  ],
+  [
+   "DE ANIME",
+   "YEL",
+   140
+  ],
+  [
+   "PRA QUEM",
+   "CREAM",
+   130
+  ],
+  [
+   "ODEIA ROMANCE",
+   "YEL",
+   120
+  ]
+ ],
+ "hook_box": "O ÚLTIMO CONQUISTA ATÉ OS DURÕES",
+ "promise_pill": "O ÚLTIMO CONQUISTA ATÉ OS DURÕES",
+ "last_pill": "O MAIS CONQUISTADOR",
+ "rating_label": "NÍVEL DE FOFURA",
+ "rating_color": "PINK",
+ "items": [
+  {
+   "title": "KAGUYA-SAMA",
+   "badge": "ANIME 1",
+   "premise": "Dois gênios do colégio travam guerra pra não confessar o amor.",
+   "why": "Comédia de estratégia com romance de brinde.",
+   "rating": 3,
+   "col": "BLUE"
+  },
+  {
+   "title": "HORIMIYA",
+   "badge": "ANIME 2",
+   "premise": "Dois colegas escondem suas vidas secretas e se aproximam.",
+   "why": "Leve, sem dramalhão, com casal bem natural.",
+   "rating": 3,
+   "col": "GREEN"
+  },
+  {
+   "title": "TONIKAWA",
+   "badge": "ANIME 3",
+   "premise": "Ele pede ela em casamento e já começam a vida juntos.",
+   "why": "Pula o drama de namoro e vai direto pro fofo.",
+   "rating": 4,
+   "col": "PINK"
+  },
+  {
+   "title": "SKIP AND LOAFER",
+   "badge": "ANIME 4",
+   "premise": "Uma garota do interior encara a vida em Tóquio.",
+   "why": "Inocente, engraçado e sem enrolação.",
+   "rating": 3,
+   "col": "YEL"
+  },
+  {
+   "title": "KOMI-SAN",
+   "badge": "ANIME 5",
+   "premise": "Uma garota tímida quer fazer cem amigos.",
+   "why": "A graça está nas amizades, o romance vem devagar.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "OURAN HIGH SCHOOL HOST CLUB",
+   "badge": "ANIME 6",
+   "premise": "Uma garota vira parte de um clube de rapazes bonitos.",
+   "why": "Paródia dos clichês de romance, rende muita risada.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "TORADORA!",
+   "badge": "ANIME 7",
+   "premise": "Dois opostos fingem ajudar um ao outro no amor.",
+   "why": "Começa comédia e termina batendo forte no coração.",
+   "rating": 5,
+   "col": "RED"
+  }
+ ],
+ "cta_title": [
+  "CURTIU A",
+  "LISTA?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA QUAL VOCÊ JÁ VIU",
+   "CREAM"
+  ],
+  [
+   "SALVA PRA MONTAR SUA LISTA",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "forja"
+}
