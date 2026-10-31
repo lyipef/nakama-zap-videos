@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s131/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-03_animes-vibe-demon-slayer_zaptaku.mp4",
+ "hook_pill": "CURTIU DEMON SLAYER?",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "PRA QUEM",
+   "YEL",
+   130
+  ],
+  [
+   "CURTIU",
+   "CREAM",
+   130
+  ],
+  [
+   "DEMON SLAYER",
+   "YEL",
+   110
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS INSANO",
+ "promise_pill": "O ÚLTIMO É O MAIS INSANO",
+ "last_pill": "O MAIS INSANO",
+ "rating_label": "NÍVEL DE LUTA",
+ "rating_color": "ORA",
+ "items": [
+  {
+   "title": "DORORO",
+   "badge": "ANIME 1",
+   "premise": "Um jovem sem partes do corpo caça demônios para recuperá-las.",
+   "why": "Samurai, monstros e uma história que dói de verdade.",
+   "rating": 3,
+   "col": "BLUE"
+  },
+  {
+   "title": "BLUE EXORCIST",
+   "badge": "ANIME 2",
+   "premise": "Filho de Satã decide virar exorcista para enfrentar o pai.",
+   "why": "Ação com amizade e um herói que luta contra o destino.",
+   "rating": 3,
+   "col": "GREEN"
+  },
+  {
+   "title": "BLEACH",
+   "badge": "ANIME 3",
+   "premise": "Um adolescente vira ceifador de almas e protege os vivos.",
+   "why": "Espadas, poderes únicos e um estilo inconfundível.",
+   "rating": 4,
+   "col": "PINK"
+  },
+  {
+   "title": "RUROUNI KENSHIN",
+   "badge": "ANIME 4",
+   "premise": "Um ex-assassino jura nunca mais matar e vaga pelo Japão.",
+   "why": "Duelos de espada com muito peso emocional.",
+   "rating": 4,
+   "col": "YEL"
+  },
+  {
+   "title": "JUJUTSU KAISEN",
+   "badge": "ANIME 5",
+   "premise": "Um estudante engole um objeto amaldiçoado e entra no mundo dos feiticeiros.",
+   "why": "Lutas fluidas e animação de cair o queixo.",
+   "rating": 5,
+   "col": "BLUE"
+  },
+  {
+   "title": "HELL'S PARADISE",
+   "badge": "ANIME 6",
+   "premise": "Um ninja condenado busca a ilha do elixir da vida para ser perdoado.",
+   "why": "Cenário bizarro, luta intensa e visual marcante.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "CHAINSAW MAN",
+   "badge": "ANIME 7",
+   "premise": "Um jovem endividado vira caçador com motosserra no corpo.",
+   "why": "Violento, caótico e diferente de tudo que você já viu.",
+   "rating": 5,
+   "col": "RED"
+  }
+ ],
+ "cta_title": [
+  "CURTIU A",
+  "LISTA?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA QUAL VOCÊ JÁ VIU",
+   "CREAM"
+  ],
+  [
+   "SALVA PRA MONTAR SUA LISTA",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "hud"
+}
