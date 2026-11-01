@@ -1,0 +1,103 @@
+{
+ "kind": "ab",
+ "bg": "stripes",
+ "wav": "/home/claude/music/s151/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-07_a-ou-b-viver-num-anime_zaptaku.mp4",
+ "hook_pill": "VOCÊ NO ANIME",
+ "hook_lines": [
+  [
+   "A OU B?",
+   "YEL",
+   170
+  ],
+  [
+   "7 DILEMAS",
+   "CREAM",
+   130
+  ],
+  [
+   "SE VOCÊ VIVESSE",
+   "CREAM",
+   110
+  ],
+  [
+   "NUM ANIME",
+   "YEL",
+   130
+  ]
+ ],
+ "hook_box": "O ÚLTIMO DIVIDE TODO MUNDO",
+ "promise_pill": "O ÚLTIMO DIVIDE TODO MUNDO",
+ "last_pill": "O MAIS POLÊMICO",
+ "items": [
+  {
+   "a": "SUPERFORÇA",
+   "b": "VELOCIDADE",
+   "vote": "A",
+   "why": "Força resolve problema na hora, até o mais teimoso.",
+   "col": "PINK"
+  },
+  {
+   "a": "ESCOLA DE MAGIA",
+   "b": "ACADEMIA DE HERÓIS",
+   "vote": "A",
+   "why": "Estudar magia é a fantasia que nunca sai de moda.",
+   "col": "BLUE"
+  },
+  {
+   "a": "DOMINAR UMA ESPADA",
+   "b": "DOMINAR UM ELEMENTO",
+   "vote": "B",
+   "why": "Controlar fogo ou vento tem muito mais estilo.",
+   "col": "GREEN"
+  },
+  {
+   "a": "TREINAR 10 ANOS",
+   "b": "PODER NO DIA 1",
+   "vote": "A",
+   "why": "Poder sem treino perde a graça da evolução.",
+   "col": "YEL"
+  },
+  {
+   "a": "RIVAL ETERNO",
+   "b": "MELHOR AMIGO",
+   "vote": "B",
+   "why": "Amigo leal vale mais que qualquer duelo.",
+   "col": "PINK"
+  },
+  {
+   "a": "ISEKAI",
+   "b": "MUNDO NINJA",
+   "vote": "A",
+   "why": "Começar do zero num mundo de fantasia é aventura certa.",
+   "col": "GREEN"
+  },
+  {
+   "a": "FINAL ÉPICO",
+   "b": "FINAL EM PAZ",
+   "vote": "B",
+   "why": "Depois de tanta luta, a paz é o melhor prêmio.",
+   "col": "ORA"
+  }
+ ],
+ "cta_title": [
+  "E VOCÊ:",
+  "A OU B?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA SEUS 7 VOTOS",
+   "CREAM"
+  ],
+  [
+   "MARCA QUEM VAI DISCORDAR",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Votos = opinião do @zaptaku",
+ "style": "hud"
+}

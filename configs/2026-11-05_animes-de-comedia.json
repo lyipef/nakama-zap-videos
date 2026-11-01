@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s141/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-05_animes-de-comedia_zaptaku.mp4",
+ "hook_pill": "RISO GARANTIDO",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "PRA RIR",
+   "YEL",
+   150
+  ],
+  [
+   "ALTO",
+   "CREAM",
+   150
+  ],
+  [
+   "SOZINHO",
+   "YEL",
+   140
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS ABSURDO",
+ "promise_pill": "O ÚLTIMO É O MAIS ABSURDO",
+ "last_pill": "O MAIS ABSURDO",
+ "rating_label": "NÍVEL DE RISADA",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "KONOSUBA",
+   "badge": "ANIME 1",
+   "premise": "Um garoto morre e vai parar num mundo de fantasia com um time inútil.",
+   "why": "Aventura de RPG onde tudo dá errado do jeito mais engraçado.",
+   "rating": 3,
+   "col": "BLUE"
+  },
+  {
+   "title": "SAIKI K.",
+   "badge": "ANIME 2",
+   "premise": "Um colegial com todos os poderes só quer uma vida normal.",
+   "why": "Piadas rápidas e pensamentos que você já teve na escola.",
+   "rating": 3,
+   "col": "PINK"
+  },
+  {
+   "title": "NICHIJOU",
+   "badge": "ANIME 3",
+   "premise": "O dia a dia de meninas e uma robô numa cidade pequena.",
+   "why": "Humor surreal em que o cotidiano vira cena de ação.",
+   "rating": 3,
+   "col": "GREEN"
+  },
+  {
+   "title": "GRAND BLUE",
+   "badge": "ANIME 4",
+   "premise": "Um calouro entra no clube de mergulho da faculdade.",
+   "why": "Exagero e caos de república universitária, sem pena de ninguém.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "ONE PUNCH MAN",
+   "badge": "ANIME 5",
+   "premise": "Um herói que derrota qualquer inimigo com um único soco.",
+   "why": "Parodia o shonen e ainda entrega luta de primeira.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "THE DEVIL IS A PART-TIMER",
+   "badge": "ANIME 6",
+   "premise": "O Senhor Demônio vai trabalhar numa lanchonete do Japão.",
+   "why": "Vilão de fantasia contando moedas é uma comédia certeira.",
+   "rating": 4,
+   "col": "PINK"
+  },
+  {
+   "title": "GINTAMA",
+   "badge": "ANIME 7",
+   "premise": "Um samurai preguiçoso faz bicos num Japão invadido por alienígenas.",
+   "why": "Parodia tudo, quebra a quarta parede e ainda emociona.",
+   "rating": 5,
+   "col": "RED"
+  }
+ ],
+ "cta_title": [
+  "QUAL TE FEZ",
+  "RIR MAIS?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA O NÚMERO",
+   "CREAM"
+  ],
+  [
+   "MARCA O AMIGO PALHAÇO",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "forja"
+}
