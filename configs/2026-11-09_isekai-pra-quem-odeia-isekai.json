@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s150/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-09_isekai-pra-quem-odeia-isekai_zaptaku.mp4",
+ "hook_pill": "SEM CLICHÊ",
+ "hook_lines": [
+  [
+   "7 ISEKAIS",
+   "CREAM",
+   150
+  ],
+  [
+   "PRA QUEM",
+   "YEL",
+   150
+  ],
+  [
+   "ODEIA",
+   "CREAM",
+   150
+  ],
+  [
+   "ISEKAI",
+   "YEL",
+   150
+  ]
+ ],
+ "hook_box": "O ÚLTIMO CONVENCE ATÉ OS CÉTICOS",
+ "promise_pill": "O ÚLTIMO CONVENCE ATÉ OS CÉTICOS",
+ "last_pill": "O MAIS CONVINCENTE",
+ "rating_label": "NÍVEL DE ORIGINALIDADE",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "RE:ZERO",
+   "badge": "ANIME 1",
+   "premise": "Um garoto é jogado em outro mundo e morre sem parar.",
+   "why": "Ele volta no tempo a cada morte: é tensão e drama, não passeio.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "OVERLORD",
+   "badge": "ANIME 2",
+   "premise": "Um jogador fica preso no game como um lich poderoso.",
+   "why": "O protagonista é o vilão, e isso muda toda a graça.",
+   "rating": 4,
+   "col": "PINK"
+  },
+  {
+   "title": "SLIME",
+   "badge": "ANIME 3",
+   "premise": "Um homem reencarna como um slime e cria uma nação.",
+   "why": "Em vez de lutar sozinho, o foco é construir uma cidade.",
+   "rating": 3,
+   "col": "GREEN"
+  },
+  {
+   "title": "SAGA OF TANYA",
+   "badge": "ANIME 4",
+   "premise": "Um executivo cético vira uma menina soldada numa guerra.",
+   "why": "Guerra, política e um protagonista nada heroico.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "LOG HORIZON",
+   "badge": "ANIME 5",
+   "premise": "Milhares de jogadores ficam presos dentro de um MMO.",
+   "why": "Menos espada, mais estratégia, economia e trabalho em equipe.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "MUSHOKU TENSEI",
+   "badge": "ANIME 6",
+   "premise": "Um adulto fracassado renasce como bebê num mundo de magia.",
+   "why": "Uma vida inteira com erros, crescimento e muito drama.",
+   "rating": 5,
+   "col": "PINK"
+  },
+  {
+   "title": "EMINENCE",
+   "badge": "ANIME 7",
+   "premise": "The Eminence in Shadow: um garoto sonha ser o chefão oculto.",
+   "why": "Parodia o gênero e vira ação absurda de rir e vibrar.",
+   "rating": 5,
+   "col": "RED"
+  }
+ ],
+ "cta_title": [
+  "VOCÊ ODEIA",
+  "ISEKAI?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA SEU FAVORITO",
+   "CREAM"
+  ],
+  [
+   "MARCA QUEM JURA QUE ODEIA",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "forja"
+}
