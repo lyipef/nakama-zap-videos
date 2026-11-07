@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s172/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-13_vilao-melhor-que-o-heroi_zaptaku.mp4",
+ "hook_pill": "SEXTA 13 É DELES",
+ "hook_lines": [
+  [
+   "7 VILÕES",
+   "CREAM",
+   150
+  ],
+  [
+   "MELHORES",
+   "YEL",
+   150
+  ],
+  [
+   "QUE O",
+   "CREAM",
+   150
+  ],
+  [
+   "HERÓI",
+   "YEL",
+   150
+  ]
+ ],
+ "hook_box": "O ÚLTIMO ROUBA A CENA",
+ "promise_pill": "O ÚLTIMO ROUBA A CENA",
+ "last_pill": "O MAIS MARCANTE",
+ "rating_label": "NÍVEL DE CARISMA",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "AIZEN",
+   "badge": "VILÃO 1",
+   "premise": "Bleach: o capitão calmo que parece sempre um passo à frente.",
+   "why": "Educado, calculista e com um plano maior que todos.",
+   "rating": 5,
+   "col": "BLUE"
+  },
+  {
+   "title": "MERUEM",
+   "badge": "VILÃO 2",
+   "premise": "Hunter x Hunter: o rei das Formigas Quimera.",
+   "why": "Vilão com evolução própria e um lado inesperado.",
+   "rating": 5,
+   "col": "PINK"
+  },
+  {
+   "title": "GRIFFITH",
+   "badge": "VILÃO 3",
+   "premise": "Berserk: o líder carismático do Bando do Falcão.",
+   "why": "Carisma de herói e ambição que não perdoa ninguém.",
+   "rating": 5,
+   "col": "RED"
+  },
+  {
+   "title": "DIO",
+   "badge": "VILÃO 4",
+   "premise": "JoJo: o rival que não aceita ser segundo lugar.",
+   "why": "Poses, frases e presença que viraram meme eterno.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "MUZAN",
+   "badge": "VILÃO 5",
+   "premise": "Demon Slayer: o primeiro dos demônios.",
+   "why": "Medo de verdade: ele manda e todo mundo obedece.",
+   "rating": 3,
+   "col": "GREEN"
+  },
+  {
+   "title": "FREEZA",
+   "badge": "VILÃO 6",
+   "premise": "Dragon Ball: o tirano espacial de fala mansa.",
+   "why": "Educado até quando é cruel, e por isso inesquecível.",
+   "rating": 4,
+   "col": "PINK"
+  },
+  {
+   "title": "PAIN",
+   "badge": "VILÃO 7",
+   "premise": "Naruto: o líder que acredita estar certo.",
+   "why": "Cada argumento dele faz você pensar no outro lado.",
+   "rating": 5,
+   "col": "RED"
+  }
+ ],
+ "cta_title": [
+  "QUAL VILÃO",
+  "É O MELHOR?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA O SEU FAVORITO",
+   "CREAM"
+  ],
+  [
+   "MARCA QUEM AMA VILÃO",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "forja"
+}
