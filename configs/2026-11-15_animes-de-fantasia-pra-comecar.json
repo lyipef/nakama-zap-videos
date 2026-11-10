@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s171/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-15_animes-de-fantasia-pra-comecar_zaptaku.mp4",
+ "hook_pill": "COMEÇA POR AQUI",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "DE FANTASIA",
+   "YEL",
+   130
+  ],
+  [
+   "PRA QUEM",
+   "CREAM",
+   150
+  ],
+  [
+   "NUNCA VIU",
+   "YEL",
+   150
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS COMPLETO",
+ "promise_pill": "O ÚLTIMO É O MAIS COMPLETO",
+ "last_pill": "O MAIS COMPLETO",
+ "rating_label": "NÍVEL DE MAGIA",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "NATSUME",
+   "badge": "ANIME 1",
+   "premise": "Um garoto que enxerga espíritos devolve nomes aos youkai.",
+   "why": "Aconchegante, calmo e perfeito pra quem tem medo de começar anime.",
+   "rating": 4,
+   "col": "PINK"
+  },
+  {
+   "title": "FAIRY TAIL",
+   "badge": "ANIME 2",
+   "premise": "Uma guilda de magos aceita missões e vive brigando e se curando.",
+   "why": "Amizade e porradaria em ritmo de aventura sem pressa.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "OUSAMA RANKING",
+   "badge": "ANIME 3",
+   "premise": "Um príncipe surdo e fraco sonha em ser o maior rei do mundo.",
+   "why": "Parece conto infantil e acerta o coração de qualquer idade.",
+   "rating": 5,
+   "col": "GREEN"
+  },
+  {
+   "title": "MAGI",
+   "badge": "ANIME 4",
+   "premise": "Um garoto cheio de curiosidade explora calabouços cheios de tesouro.",
+   "why": "Mistura Mil e Uma Noites com batalhas de gente grande.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "YONA",
+   "badge": "ANIME 5",
+   "premise": "Uma princesa perde o trono e parte em jornada com guerreiros dragão.",
+   "why": "Fantasia com romance e crescimento de personagem de verdade.",
+   "rating": 5,
+   "col": "BLUE"
+  },
+  {
+   "title": "MADE IN ABYSS",
+   "badge": "ANIME 6",
+   "premise": "Uma menina desce num abismo misterioso atrás da mãe.",
+   "why": "Visual lindo, mundo enorme e emoção pesada.",
+   "rating": 5,
+   "col": "RED"
+  },
+  {
+   "title": "FMA BROTHERHOOD",
+   "badge": "ANIME 7",
+   "premise": "Dois irmãos usam alquimia pra tentar consertar um erro enorme.",
+   "why": "Roteiro redondo do começo ao fim: dá pra apresentar pra qualquer pessoa.",
+   "rating": 5,
+   "col": "PINK"
+  }
+ ],
+ "cta_title": [
+  "PRONTO PRA",
+  "FANTASIA?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA QUAL VOCÊ JÁ VIU",
+   "CREAM"
+  ],
+  [
+   "MARCA QUEM AMA MAGIA",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "forja"
+}
