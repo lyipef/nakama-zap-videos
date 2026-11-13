@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s191/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-19_animes-com-trilha-sonora-incrivel_zaptaku.mp4",
+ "hook_pill": "PRA OUVIR COM FONE",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "COM TRILHA",
+   "YEL",
+   150
+  ],
+  [
+   "SONORA",
+   "CREAM",
+   150
+  ],
+  [
+   "INCRÍVEL",
+   "YEL",
+   150
+  ]
+ ],
+ "hook_box": "O ÚLTIMO ARREPIA NA PRIMEIRA NOTA",
+ "promise_pill": "O ÚLTIMO ARREPIA",
+ "last_pill": "O MAIS ARREPIANTE",
+ "rating_label": "NÍVEL DE ARREPIO",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "COWBOY BEBOP",
+   "badge": "ANIME 1",
+   "premise": "Caçadores de recompensa vagam pelo espaço ao som de jazz.",
+   "why": "O jazz de Yoko Kanno faz cada cena parecer cinema.",
+   "rating": 5,
+   "col": "PINK"
+  },
+  {
+   "title": "YOUR LIE IN APRIL",
+   "badge": "ANIME 2",
+   "premise": "Um pianista que perdeu o som reencontra a música com uma violinista.",
+   "why": "Cada apresentação é de arrepiar e de chorar.",
+   "rating": 5,
+   "col": "BLUE"
+  },
+  {
+   "title": "SAMURAI CHAMPLOO",
+   "badge": "ANIME 3",
+   "premise": "Dois espadachins escoltam uma garota numa viagem pelo Japão antigo.",
+   "why": "Samurai com hip hop: a mistura que ninguém esquece.",
+   "rating": 4,
+   "col": "GREEN"
+  },
+  {
+   "title": "NANA",
+   "badge": "ANIME 4",
+   "premise": "Duas mulheres com o mesmo nome dividem um apartamento e sonhos.",
+   "why": "Rock, amizade e uma banda que parece real.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "KIDS ON THE SLOPE",
+   "badge": "ANIME 5",
+   "premise": "Dois amigos se unem por causa do jazz numa cidade portuária.",
+   "why": "Os duetos de piano e bateria dão vontade de ouvir de novo.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "BECK",
+   "badge": "ANIME 6",
+   "premise": "Um garoto comum entra numa banda de rock e muda de vida.",
+   "why": "Mostra como é montar uma banda do zero.",
+   "rating": 4,
+   "col": "RED"
+  },
+  {
+   "title": "GIVEN",
+   "badge": "ANIME 7",
+   "premise": "Um guitarrista conhece um vocalista com uma voz que o prende.",
+   "why": "Uma trilha emocionante e sensível, direto no coração.",
+   "rating": 5,
+   "col": "PINK"
+  }
+ ],
+ "cta_title": [
+  "QUAL TRILHA",
+  "VOCÊ OUVE?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA O SEU FAVORITO",
+   "CREAM"
+  ],
+  [
+   "MARCA QUEM AMA MÚSICA",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "forja"
+}

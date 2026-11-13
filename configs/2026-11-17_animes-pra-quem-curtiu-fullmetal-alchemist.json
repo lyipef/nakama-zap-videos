@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s171/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-17_animes-pra-quem-curtiu-fullmetal-alchemist_zaptaku.mp4",
+ "hook_pill": "AVENTURA COM ALMA",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "PRA QUEM",
+   "YEL",
+   150
+  ],
+  [
+   "CURTIU",
+   "CREAM",
+   150
+  ],
+  [
+   "FULLMETAL",
+   "YEL",
+   130
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS ÉPICO",
+ "promise_pill": "O ÚLTIMO É O MAIS ÉPICO",
+ "last_pill": "O MAIS ÉPICO",
+ "rating_label": "NÍVEL DE AVENTURA",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "HUNTER X HUNTER",
+   "badge": "ANIME 1",
+   "premise": "Um garoto sai em busca do pai e entra num mundo de caçadores.",
+   "why": "Amizade, estratégia e arcos que prendem do início ao fim.",
+   "rating": 5,
+   "col": "PINK"
+  },
+  {
+   "title": "SOUL EATER",
+   "badge": "ANIME 2",
+   "premise": "Alunos de uma academia caçam almas ao lado de armas vivas.",
+   "why": "Estilo único e uma trilha que gruda na cabeça.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "DR. STONE",
+   "badge": "ANIME 3",
+   "premise": "Um gênio da ciência recria a civilização depois de virar pedra.",
+   "why": "Aprender ciência nunca foi tão empolgante.",
+   "rating": 4,
+   "col": "GREEN"
+  },
+  {
+   "title": "MAGI",
+   "badge": "ANIME 4",
+   "premise": "Um garoto e um amigo exploram masmorras e magia inspirados em lendas.",
+   "why": "Aventura com política e um mundo cheio de lendas.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "FAIRY TAIL",
+   "badge": "ANIME 5",
+   "premise": "Magos de uma guilda enfrentam missões, rivais e ameaças enormes.",
+   "why": "Diversão pura e amizade que aquece o coração.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "MADE IN ABYSS",
+   "badge": "ANIME 6",
+   "premise": "Duas crianças descem num abismo misterioso cheio de criaturas.",
+   "why": "Visual lindo e uma história que mexe com você.",
+   "rating": 5,
+   "col": "RED"
+  },
+  {
+   "title": "VINLAND SAGA",
+   "badge": "ANIME 7",
+   "premise": "Um jovem guerreiro vive entre vikings e busca seu caminho.",
+   "why": "Amadurece o personagem como poucos animes fazem.",
+   "rating": 5,
+   "col": "PINK"
+  }
+ ],
+ "cta_title": [
+  "CURTIU",
+  "FULLMETAL?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA QUAL VOCÊ JÁ VIU",
+   "CREAM"
+  ],
+  [
+   "MARCA QUEM AMA AVENTURA",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "hud"
+}
