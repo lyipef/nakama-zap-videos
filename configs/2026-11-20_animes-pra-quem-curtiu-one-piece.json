@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s201/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-20_animes-pra-quem-curtiu-one-piece_zaptaku.mp4",
+ "hook_pill": "AVENTURA EM GRUPO",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "PRA QUEM",
+   "YEL",
+   150
+  ],
+  [
+   "CURTIU",
+   "CREAM",
+   150
+  ],
+  [
+   "ONE PIECE",
+   "YEL",
+   150
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS VICIANTE",
+ "promise_pill": "O ÚLTIMO É O MAIS VICIANTE",
+ "last_pill": "O MAIS VICIANTE",
+ "rating_label": "NÍVEL DE AVENTURA",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "FAIRY TAIL",
+   "badge": "FANTASIA",
+   "premise": "Uma guilda de magos vive missões ao lado de seus amigos.",
+   "why": "A guilda vira família, e dá vontade de entrar nela.",
+   "rating": 3,
+   "col": "PINK"
+  },
+  {
+   "title": "DR. STONE",
+   "badge": "CIÊNCIA",
+   "premise": "Um gênio reconstrói a civilização depois que o mundo vira pedra.",
+   "why": "Aventura que ensina ciência sem ficar chata.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "MAGI",
+   "badge": "ARÁBIAN NIGHTS",
+   "premise": "Garotos exploram masmorras misteriosas num mundo de magia.",
+   "why": "Mundo rico e política que surpreende.",
+   "rating": 4,
+   "col": "GREEN"
+  },
+  {
+   "title": "DRAGON BALL",
+   "badge": "CLÁSSICO",
+   "premise": "Goku treina e viaja atrás das esferas do dragão.",
+   "why": "A origem de todo shonen de luta e aventura.",
+   "rating": 4,
+   "col": "RED"
+  },
+  {
+   "title": "MADE IN ABYSS",
+   "badge": "MISTÉRIO",
+   "premise": "Crianças descem num abismo gigante cheio de segredos.",
+   "why": "Visual lindo e uma descida que prende.",
+   "rating": 5,
+   "col": "YEL"
+  },
+  {
+   "title": "DUNGEON MESHI",
+   "badge": "COMÉDIA",
+   "premise": "Aventureiros cozinham os monstros da masmorra pra sobreviver.",
+   "why": "Criativo, engraçado e com muito carinho nos detalhes.",
+   "rating": 5,
+   "col": "GREEN"
+  },
+  {
+   "title": "HUNTER X HUNTER",
+   "badge": "SHONEN",
+   "premise": "Gon sai atrás do pai e vira um Hunter.",
+   "why": "Tem amizade, estratégia e um dos melhores arcos do gênero.",
+   "rating": 5,
+   "col": "ORA"
+  }
+ ],
+ "cta_title": [
+  "CURTIU",
+  "ONE PIECE?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA QUAL VOCÊ JÁ VIU",
+   "CREAM"
+  ],
+  [
+   "MARCA SEU PARCEIRO DE AVENTURA",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "hud"
+}

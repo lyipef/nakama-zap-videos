@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "dots",
+ "wav": "/home/claude/music/s202/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-22_animes-abraco-pra-domingo_zaptaku.mp4",
+ "hook_pill": "DOMINGO SEM PRESSA",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "QUE SÃO UM",
+   "YEL",
+   130
+  ],
+  [
+   "ABRAÇO PRA",
+   "CREAM",
+   130
+  ],
+  [
+   "DOMINGO",
+   "YEL",
+   150
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS RELAXANTE",
+ "promise_pill": "O ÚLTIMO É O MAIS RELAXANTE",
+ "last_pill": "O MAIS RELAXANTE",
+ "rating_label": "NÍVEL DE ABRAÇO",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "FLYING WITCH",
+   "badge": "SLICE OF LIFE",
+   "premise": "Uma bruxa aprendiz vive num campo tranquilo com a família.",
+   "why": "Magia pequena e dia a dia que acalma.",
+   "rating": 3,
+   "col": "PINK"
+  },
+  {
+   "title": "NON NON BIYORI",
+   "badge": "INTERIOR",
+   "premise": "Crianças de uma vila rural vivem dias simples e divertidos.",
+   "why": "Interior sem pressa, perfeito pra desacelerar.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "YURU CAMP",
+   "badge": "CAMPING",
+   "premise": "Garotas curtem acampamentos tranquilos perto do monte Fuji.",
+   "why": "Dá vontade de pegar a barraca e sair.",
+   "rating": 4,
+   "col": "GREEN"
+  },
+  {
+   "title": "DOCES E TROVÕES",
+   "badge": "CULINÁRIA",
+   "premise": "Um pai solo aprende a cozinhar pra filha.",
+   "why": "Receitas e carinho que aquecem o coração.",
+   "rating": 4,
+   "col": "RED"
+  },
+  {
+   "title": "NATSUME YUUJINCHOU",
+   "badge": "SOBRENATURAL",
+   "premise": "Um garoto devolve nomes de espíritos que vê ao redor.",
+   "why": "Cada episódio é uma história delicada.",
+   "rating": 5,
+   "col": "YEL"
+  },
+  {
+   "title": "ARIA",
+   "badge": "FUTURISTA",
+   "premise": "Uma aprendiz vira gondoleira numa Veneza em outro planeta.",
+   "why": "É o anime mais calmo que existe.",
+   "rating": 5,
+   "col": "GREEN"
+  },
+  {
+   "title": "MUSHISHI",
+   "badge": "CONTEMPLATIVO",
+   "premise": "Um viajante investiga seres misteriosos que vivem na natureza.",
+   "why": "Calma, beleza e histórias que ficam na cabeça.",
+   "rating": 5,
+   "col": "ORA"
+  }
+ ],
+ "cta_title": [
+  "QUAL VOCÊ",
+  "VAI VER HOJE?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA O SEU FAVORITO",
+   "CREAM"
+  ],
+  [
+   "SALVA PRA DOMINGO",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Nível de abraço = opinião nossa",
+ "style": "forja"
+}
