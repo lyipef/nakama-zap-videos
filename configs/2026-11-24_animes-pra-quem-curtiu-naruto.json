@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "grid",
+ "wav": "/home/claude/music/s231/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-24_animes-pra-quem-curtiu-naruto_zaptaku.mp4",
+ "hook_pill": "TREINO E RIVALIDADE",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "PRA QUEM",
+   "YEL",
+   150
+  ],
+  [
+   "CURTIU",
+   "CREAM",
+   150
+  ],
+  [
+   "NARUTO",
+   "YEL",
+   150
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS INTENSO",
+ "promise_pill": "O ÚLTIMO É O MAIS INTENSO",
+ "last_pill": "O MAIS INTENSO",
+ "rating_label": "NÍVEL DE SHONEN",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "BLEACH",
+   "badge": "SHINIGAMI",
+   "premise": "Um adolescente vira ceifador de almas e protege a cidade.",
+   "why": "Lutas estilosas e uma trilha que gruda na cabeça.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "MY HERO ACADEMIA",
+   "badge": "HERÓIS",
+   "premise": "Um garoto sem poder sonha em ser o maior herói.",
+   "why": "Tem o mesmo clima de quem luta pra provar seu valor.",
+   "rating": 4,
+   "col": "GREEN"
+  },
+  {
+   "title": "BLACK CLOVER",
+   "badge": "MAGIA",
+   "premise": "Asta nasceu sem magia e promete virar o rei mago.",
+   "why": "O esforço do protagonista lembra muito o Naruto.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "FIRE FORCE",
+   "badge": "FOGO",
+   "premise": "Uma tropa de bombeiros enfrenta humanos que viram chamas.",
+   "why": "Ação em alta velocidade e um visual que impressiona.",
+   "rating": 4,
+   "col": "RED"
+  },
+  {
+   "title": "BLUE EXORCIST",
+   "badge": "DEMÔNIOS",
+   "premise": "Filho de Satã entra numa escola de exorcistas.",
+   "why": "Rivalidade, treino e um herói que luta contra o destino.",
+   "rating": 4,
+   "col": "PINK"
+  },
+  {
+   "title": "SEVEN DEADLY SINS",
+   "badge": "FANTASIA",
+   "premise": "Sete cavaleiros lendários voltam pra salvar o reino.",
+   "why": "Grupo carismático e lutas cheias de poderes.",
+   "rating": 4,
+   "col": "YEL"
+  },
+  {
+   "title": "YU YU HAKUSHO",
+   "badge": "CLÁSSICO",
+   "premise": "Um delinquente vira detetive do mundo espiritual.",
+   "why": "Um dos pais do shonen moderno, com torneios épicos.",
+   "rating": 5,
+   "col": "ORA"
+  }
+ ],
+ "cta_title": [
+  "CURTIU",
+  "NARUTO?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA QUAL VOCÊ JÁ VIU",
+   "CREAM"
+  ],
+  [
+   "MARCA SEU PARCEIRO DE MARATONA",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "hud"
+}
