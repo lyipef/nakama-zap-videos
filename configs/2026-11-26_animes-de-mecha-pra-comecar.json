@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "stripes",
+ "wav": "/home/claude/music/s262/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-26_animes-de-mecha-pra-comecar_zaptaku.mp4",
+ "hook_pill": "ROBÔS GIGANTES",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "DE MECHA",
+   "YEL",
+   150
+  ],
+  [
+   "PRA QUEM",
+   "CREAM",
+   150
+  ],
+  [
+   "NUNCA VIU",
+   "YEL",
+   150
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS EMPOLGANTE",
+ "promise_pill": "O ÚLTIMO É O MAIS EMPOLGANTE",
+ "last_pill": "O MAIS EMPOLGANTE",
+ "rating_label": "NÍVEL DE MECHA",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "FULL METAL PANIC!",
+   "badge": "COMÉDIA E GUERRA",
+   "premise": "Um soldado secreto finge ser aluno de escola.",
+   "why": "Mistura humor de colégio com guerra de verdade.",
+   "rating": 4,
+   "col": "PINK"
+  },
+  {
+   "title": "EUREKA SEVEN",
+   "badge": "SURFE NO AR",
+   "premise": "Um garoto conhece uma piloto e foge numa nave.",
+   "why": "Visual único e uma história de amor aventureira.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "GUNDAM 00",
+   "badge": "GUERRA E POLÍTICA",
+   "premise": "Pilotos tentam acabar com as guerras do mundo.",
+   "why": "Dilemas sérios e batalhas muito bem feitas.",
+   "rating": 4,
+   "col": "GREEN"
+  },
+  {
+   "title": "DARLING IN THE FRANXX",
+   "badge": "PILOTOS EM DUPLA",
+   "premise": "Jovens pilotam robôs sempre em pares.",
+   "why": "Drama intenso e muita discussão nos comentários.",
+   "rating": 4,
+   "col": "RED"
+  },
+  {
+   "title": "EVANGELION",
+   "badge": "CLÁSSICO",
+   "premise": "Um garoto é obrigado a pilotar um robô gigante.",
+   "why": "O clássico que mexe com a cabeça de qualquer um.",
+   "rating": 5,
+   "col": "ORA"
+  },
+  {
+   "title": "CODE GEASS",
+   "badge": "ESTRATÉGIA",
+   "premise": "Um estudante ganha um poder e enfrenta um império.",
+   "why": "Plot twists e um protagonista impossível de largar.",
+   "rating": 5,
+   "col": "BLUE"
+  },
+  {
+   "title": "GURREN LAGANN",
+   "badge": "PURA ENERGIA",
+   "premise": "Dois amigos cavam, lutam e chegam ao céu.",
+   "why": "Exagero, emoção e um final de arrepiar.",
+   "rating": 5,
+   "col": "YEL"
+  }
+ ],
+ "cta_title": [
+  "PRONTO PRA",
+  "PILOTAR?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA QUAL VOCÊ JÁ VIU",
+   "CREAM"
+  ],
+  [
+   "MARCA QUEM AMA ROBÔ",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "forja"
+}

@@ -1,0 +1,103 @@
+{
+ "kind": "ab",
+ "bg": "dots",
+ "wav": "/home/claude/music/s262/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-28_a-ou-b-dilemas-do-maratonista_zaptaku.mp4",
+ "hook_pill": "MARATONISTA",
+ "hook_lines": [
+  [
+   "A OU B?",
+   "YEL",
+   170
+  ],
+  [
+   "7 DILEMAS",
+   "CREAM",
+   130
+  ],
+  [
+   "DE QUEM MARATONA",
+   "CREAM",
+   100
+  ],
+  [
+   "ANIME",
+   "YEL",
+   150
+  ]
+ ],
+ "hook_box": "O ÚLTIMO DIVIDE TODO MUNDO",
+ "promise_pill": "O ÚLTIMO DIVIDE TODO MUNDO",
+ "last_pill": "O MAIS POLÊMICO",
+ "items": [
+  {
+   "a": "DUBLADO",
+   "b": "LEGENDADO",
+   "vote": "B",
+   "why": "Legenda preserva a atuação original.",
+   "col": "PINK"
+  },
+  {
+   "a": "UM EP POR SEMANA",
+   "b": "MARATONA",
+   "vote": "A",
+   "why": "Esperar dá aquele gostinho de expectativa.",
+   "col": "BLUE"
+  },
+  {
+   "a": "LER O MANGÁ ANTES",
+   "b": "VER O ANIME ANTES",
+   "vote": "B",
+   "why": "Ver primeiro faz a surpresa valer mais.",
+   "col": "GREEN"
+  },
+  {
+   "a": "PULAR ABERTURA",
+   "b": "VER SEMPRE",
+   "vote": "B",
+   "why": "Abertura boa faz parte da experiência.",
+   "col": "YEL"
+  },
+  {
+   "a": "ANIME CURTO",
+   "b": "ANIME LONGO",
+   "vote": "A",
+   "why": "Doze episódios sem enrolação é perfeito.",
+   "col": "PINK"
+  },
+  {
+   "a": "FINAL ABERTO",
+   "b": "FINAL FECHADO",
+   "vote": "B",
+   "why": "Terminar a história deixa a gente em paz.",
+   "col": "GREEN"
+  },
+  {
+   "a": "PULAR FILLER",
+   "b": "VER TUDO",
+   "vote": "A",
+   "why": "O tempo é curto e a lista é enorme.",
+   "col": "ORA"
+  }
+ ],
+ "cta_title": [
+  "E VOCÊ:",
+  "A OU B?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA SEUS 7 VOTOS",
+   "CREAM"
+  ],
+  [
+   "MARCA QUEM VAI DISCORDAR",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Votos = opinião do @zaptaku",
+ "style": "hud"
+}
