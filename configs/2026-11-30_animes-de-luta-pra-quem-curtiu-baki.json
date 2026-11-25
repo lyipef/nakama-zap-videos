@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "dots",
+ "wav": "/home/claude/music/s301/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-11-30_animes-de-luta-pra-quem-curtiu-baki_zaptaku.mp4",
+ "hook_pill": "PORRADA BEM ANIMADA",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "DE LUTA",
+   "YEL",
+   150
+  ],
+  [
+   "PRA QUEM",
+   "CREAM",
+   150
+  ],
+  [
+   "CURTIU BAKI",
+   "YEL",
+   130
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS BRUTAL",
+ "promise_pill": "O ÚLTIMO É O MAIS BRUTAL",
+ "last_pill": "O MAIS BRUTAL",
+ "rating_label": "NÍVEL DE PORRADA",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "KENICHI",
+   "badge": "ARTES MARCIAIS",
+   "premise": "Um garoto fraco treina com mestres de vários estilos.",
+   "why": "Humor, treino e luta numa porta de entrada leve.",
+   "rating": 3,
+   "col": "GREEN"
+  },
+  {
+   "title": "MASHLE",
+   "badge": "MÚSCULO X MAGIA",
+   "premise": "Num mundo de magia, ele resolve tudo na força bruta.",
+   "why": "Comédia absurda com lutas bem animadas.",
+   "rating": 3,
+   "col": "PINK"
+  },
+  {
+   "title": "ASHITA NO JOE",
+   "badge": "CLÁSSICO DO BOXE",
+   "premise": "Um jovem rebelde encontra no ringue um novo caminho.",
+   "why": "Inspirou gerações de séries de luta.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "HOKUTO NO KEN",
+   "badge": "GOLPES IMPOSSÍVEIS",
+   "premise": "Um mestre de arte marcial secreta num mundo devastado.",
+   "why": "Exagero clássico que virou referência.",
+   "rating": 4,
+   "col": "RED"
+  },
+  {
+   "title": "SAKAMOTO DAYS",
+   "badge": "AÇÃO ESTILOSA",
+   "premise": "Um ex-assassino lendário vive como dono de mercadinho.",
+   "why": "Cenas de luta criativas e cheias de humor.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "RECORD OF RAGNAROK",
+   "badge": "DEUSES X HUMANOS",
+   "premise": "Duelos 1 contra 1 decidem o destino da humanidade.",
+   "why": "Cada luta é um evento épico.",
+   "rating": 5,
+   "col": "BLUE"
+  },
+  {
+   "title": "KENGAN ASHURA",
+   "badge": "TORNEIO BRUTAL",
+   "premise": "Lutadores de todos os estilos disputam um torneio sem freio.",
+   "why": "Pancadaria pesada pra fã de Baki.",
+   "rating": 5,
+   "col": "YEL"
+  }
+ ],
+ "cta_title": [
+  "CURTIU",
+  "BAKI?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA QUAL VOCÊ JÁ VIU",
+   "CREAM"
+  ],
+  [
+   "MARCA QUEM AMA PORRADA",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual ficou de fora?",
+ "style": "forja"
+}
