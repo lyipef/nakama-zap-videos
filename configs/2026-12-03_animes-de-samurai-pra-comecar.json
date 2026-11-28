@@ -1,0 +1,112 @@
+{
+ "kind": "list",
+ "bg": "stripes",
+ "wav": "/home/claude/reel/music/lofi_nakama.wav",
+ "out": "/home/claude/nakama-zap-videos/videos/2026-12-03_animes-de-samurai-pra-comecar_zaptaku.mp4",
+ "hook_pill": "NUNCA VIU ANIME DE SAMURAI?",
+ "hook_lines": [
+  [
+   "7 ANIMES",
+   "CREAM",
+   150
+  ],
+  [
+   "DE SAMURAI",
+   "YEL",
+   150
+  ],
+  [
+   "PRA",
+   "CREAM",
+   150
+  ],
+  [
+   "COMEÇAR",
+   "YEL",
+   150
+  ]
+ ],
+ "hook_box": "O ÚLTIMO É O MAIS ESTILOSO",
+ "promise_pill": "O ÚLTIMO É O MAIS ESTILOSO",
+ "last_pill": "O MAIS ESTILOSO",
+ "rating_label": "NÍVEL DE ESPADA",
+ "rating_color": "YEL",
+ "items": [
+  {
+   "title": "GINTAMA",
+   "badge": "COMÉDIA",
+   "premise": "Um samurai preguiçoso faz bico num Japão invadido por aliens.",
+   "why": "Porta de entrada leve: ri muito e ainda tem luta séria.",
+   "rating": 4,
+   "col": "ORA"
+  },
+  {
+   "title": "KATANAGATARI",
+   "badge": "JORNADA",
+   "premise": "Um espadachim sem espada caça 12 lâminas lendárias.",
+   "why": "Cada arco é um duelo novo, com diálogos afiados.",
+   "rating": 4,
+   "col": "GREEN"
+  },
+  {
+   "title": "DRIFTERS",
+   "badge": "FANTASIA",
+   "premise": "Um samurai cai num mundo de elfos e magos em guerra.",
+   "why": "Mistura samurai com fantasia, perfeito pra quem vem de isekai.",
+   "rating": 4,
+   "col": "BLUE"
+  },
+  {
+   "title": "THE ELUSIVE SAMURAI",
+   "badge": "HISTÓRICO",
+   "premise": "Um jovem herdeiro sobrevive fugindo, não lutando.",
+   "why": "Ideia original e uma animação que não para de surpreender.",
+   "rating": 4,
+   "col": "PINK"
+  },
+  {
+   "title": "BLADE OF THE IMMORTAL",
+   "badge": "VINGANÇA",
+   "premise": "Um espadachim imortal ajuda uma garota a se vingar.",
+   "why": "Mais pesado e adulto, pra quem quer duelos sem enrolação.",
+   "rating": 4,
+   "col": "RED"
+  },
+  {
+   "title": "SWORD OF THE STRANGER",
+   "badge": "FILME",
+   "premise": "Um ronin sem nome protege um garoto perseguido.",
+   "why": "Um filme só, com o duelo final mais bem animado do gênero.",
+   "rating": 5,
+   "col": "YEL"
+  },
+  {
+   "title": "SAMURAI CHAMPLOO",
+   "badge": "CLÁSSICO",
+   "premise": "Dois espadachins rivais viajam com uma garota.",
+   "why": "Samurai com hip-hop e lofi: estilo que nenhum outro tem.",
+   "rating": 5,
+   "col": "ORA"
+  }
+ ],
+ "cta_title": [
+  "QUAL",
+  "ESPADA?"
+ ],
+ "cta_boxes": [
+  [
+   "COMENTA QUAL VOCÊ JÁ VIU",
+   "CREAM"
+  ],
+  [
+   "MARCA QUEM AMA UM DUELO",
+   "ORA"
+  ],
+  [
+   "SEGUE PRA PARTE 2",
+   "YEL"
+  ]
+ ],
+ "cta_note": "Lista do @zaptaku. Qual samurai ficou de fora?",
+ "style": "hud"
+}
